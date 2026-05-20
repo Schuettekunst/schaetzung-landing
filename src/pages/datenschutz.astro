@@ -13,66 +13,174 @@ import Footer from '../components/Footer.astro';
       <h1 class="mt-6 font-serif text-primary text-4xl sm:text-5xl">Datenschutzerklärung</h1>
 
       {/*
-        Hier Datenschutzerklärung einfügen – muss DSGVO-konform sein,
-        idealerweise vom Anwalt geprüft.
-        Wichtige Punkte:
-        - Web3Forms als Auftragsverarbeiter
-        - Google Tag Manager / Google Analytics / Google Ads
-        - Cookies
-        - Speicherung der Schätzungsanfragen
+        HINWEIS: Diese Datenschutzerklärung ist ein Entwurf, basierend auf den
+        Strukturanforderungen für eine Landing Page mit Web3Forms, Google Tag Manager,
+        Google Analytics und Google Ads. Vor Go-Live MUSS sie von einem auf DSGVO/TTDSG
+        spezialisierten Anwalt geprüft und finalisiert werden. Die bestehende
+        DS-Erklärung auf schuettekunst.de war nicht ausreichend für die hier eingesetzten
+        Tools.
       */}
-      <div class="mt-10 space-y-8 text-ink/85 leading-relaxed">
-        <p class="italic text-muted">
-          [Platzhalter – Diese Datenschutzerklärung muss vor Go-Live von einem auf
-          DSGVO spezialisierten Anwalt geprüft und finalisiert werden.]
-        </p>
+      <div class="mt-6 mb-10 p-5 bg-accent/10 border border-accent/30 text-sm">
+        <strong>Hinweis (vor Go-Live entfernen):</strong> Dieser Text ist ein Entwurf
+        und muss vor dem Live-Schalten anwaltlich geprüft werden – insbesondere wegen
+        Web3Forms, Google Tag Manager, Google Analytics und Google Ads.
+      </div>
 
+      <div class="space-y-8 text-ink/85 leading-relaxed">
         <section>
           <h2 class="font-serif text-primary text-2xl mb-3">1. Verantwortlicher</h2>
           <p>
             Schütte Kunstauktionen GmbH<br />
-            [Adresse]<br />
-            E-Mail: info@schuettekunst.de
+            Gohliser Straße 19<br />
+            04155 Leipzig<br />
+            Deutschland
+          </p>
+          <p class="mt-3">
+            Telefon: +49 (0) 341 – 2537 6245<br />
+            E-Mail: <a href="mailto:info@kunstauktionshaus-leipzig.com" class="text-primary underline hover:text-accent">info@kunstauktionshaus-leipzig.com</a>
           </p>
         </section>
 
         <section>
-          <h2 class="font-serif text-primary text-2xl mb-3">2. Schätzungsanfrage über das Kontaktformular</h2>
+          <h2 class="font-serif text-primary text-2xl mb-3">2. Allgemeines zur Datenverarbeitung</h2>
+          <p>
+            Wir verarbeiten personenbezogene Daten unserer Nutzer grundsätzlich nur, soweit
+            dies zur Bereitstellung einer funktionsfähigen Website sowie unserer Inhalte und
+            Leistungen erforderlich ist. Die Verarbeitung erfolgt regelmäßig nur nach
+            Einwilligung der Nutzer oder wenn die Verarbeitung durch gesetzliche Vorschriften
+            gestattet ist.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-primary text-2xl mb-3">3. Bereitstellung der Website und Server-Logfiles</h2>
+          <p>
+            Bei jedem Aufruf unserer Website erfasst unser Hosting-Provider automatisch Daten
+            und Informationen vom Computersystem des aufrufenden Rechners (Server-Logfiles).
+            Folgende Daten werden hierbei erhoben: IP-Adresse, Datum und Uhrzeit des Zugriffs,
+            Browsertyp/-version, Betriebssystem, Referrer-URL.
+            Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an Betrieb und
+            Sicherheit). Speicherdauer: maximal 7 Tage.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-primary text-2xl mb-3">4. Schätzungsanfrage über das Kontaktformular</h2>
           <p>
             Wenn Sie uns über das Schätzungsformular eine Anfrage übermitteln, werden Ihre
-            Angaben (Name, E-Mail, ggf. Telefonnummer, Angaben zum Werk, hochgeladene Fotos)
-            zwecks Bearbeitung Ihrer Anfrage und für den Fall von Anschlussfragen bei uns
-            gespeichert. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b und f DSGVO.
+            Angaben (Name, E-Mail, ggf. Telefonnummer, Angaben zum Werk wie Künstler, Werkart,
+            Technik, Maße, Beschreibung, Wertschätzung sowie hochgeladene Fotos) zwecks
+            Bearbeitung Ihrer Anfrage und für den Fall von Anschlussfragen bei uns gespeichert.
+          </p>
+          <p class="mt-3">
+            Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Anbahnung eines Vertragsverhältnisses)
+            sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an effizienter
+            Anfragebearbeitung). Die Daten werden gelöscht, sobald sie für die Erreichung des
+            Zwecks ihrer Erhebung nicht mehr erforderlich sind und keine gesetzlichen
+            Aufbewahrungspflichten entgegenstehen.
           </p>
         </section>
 
         <section>
-          <h2 class="font-serif text-primary text-2xl mb-3">3. Auftragsverarbeiter Web3Forms</h2>
+          <h2 class="font-serif text-primary text-2xl mb-3">5. Auftragsverarbeiter: Web3Forms</h2>
           <p>
-            Für die technische Übermittlung des Formulars nutzen wir den Dienst Web3Forms
-            (Web3Forms, betrieben von gleichnamigem Anbieter). Mit dem Anbieter besteht
-            ein Auftragsverarbeitungsvertrag (AVV) gemäß Art. 28 DSGVO.
-            [Details ergänzen.]
+            Für die technische Übermittlung des Schätzungsformulars setzen wir den Dienst
+            <strong>Web3Forms</strong> ein (Anbieter: SimpleStack, FZ-LLC, Dubai/UAE).
+            Die im Formular eingegebenen Daten werden über die Server von Web3Forms an unsere
+            E-Mail-Adresse weitergeleitet. Mit dem Anbieter besteht ein
+            Auftragsverarbeitungsvertrag (AVV) gemäß Art. 28 DSGVO.
+          </p>
+          <p class="mt-3">
+            Datenübertragung in Drittländer: Da Web3Forms außerhalb der EU sitzt, kann es zu
+            einer Übermittlung in ein Drittland kommen. Geeignete Garantien werden über
+            Standardvertragsklauseln gemäß Art. 46 Abs. 2 DSGVO sichergestellt.
+            Rechtsgrundlage: Art. 6 Abs. 1 lit. b/f DSGVO. Details:
+            <a href="https://web3forms.com/privacy" class="text-primary underline hover:text-accent" rel="noopener">web3forms.com/privacy</a>.
           </p>
         </section>
 
         <section>
-          <h2 class="font-serif text-primary text-2xl mb-3">4. Cookies und Tracking</h2>
+          <h2 class="font-serif text-primary text-2xl mb-3">6. Cookies und Consent Management</h2>
           <p>
-            Auf dieser Website kommen nur essenzielle Cookies zum Einsatz, solange Sie
-            keine Einwilligung in den Banner gegeben haben. Erst nach aktiver Zustimmung
-            laden wir den Google Tag Manager, über den Google Analytics 4 und Google Ads
-            Conversion-Tracking eingebunden werden. Wir nutzen den Google Consent Mode V2.
-            Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO sowie § 25 Abs. 1 TTDSG.
+            Beim Aufruf unserer Website setzen wir zunächst nur technisch notwendige Cookies
+            ein. Erst nach Ihrer aktiven Einwilligung im Cookie-Banner laden wir den Google
+            Tag Manager und die darüber eingebundenen Tracking-Dienste. Wir nutzen den
+            <strong>Google Consent Mode V2</strong>.
+          </p>
+          <p class="mt-3">
+            Rechtsgrundlage: § 25 Abs. 1 TTDSG (Einwilligung) bzw. § 25 Abs. 2 TTDSG
+            (essenziell). Ihre Einwilligung können Sie jederzeit widerrufen, indem Sie die
+            Cookies in Ihrem Browser löschen.
           </p>
         </section>
 
         <section>
-          <h2 class="font-serif text-primary text-2xl mb-3">5. Ihre Rechte</h2>
+          <h2 class="font-serif text-primary text-2xl mb-3">7. Google Tag Manager</h2>
           <p>
-            Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der
-            Verarbeitung, Datenübertragbarkeit sowie auf Beschwerde bei einer
-            Aufsichtsbehörde. Wenden Sie sich dazu an info@schuettekunst.de.
+            Wir setzen den Google Tag Manager (Anbieter: Google Ireland Ltd., Gordon House,
+            Barrow Street, Dublin 4, Irland) zur zentralen Verwaltung von Website-Tags ein.
+            Der Tag Manager selbst erhebt keine personenbezogenen Daten, lädt aber andere
+            Tags, die ihrerseits ggf. Daten erfassen. Der Tag Manager wird erst nach
+            Einwilligung im Consent-Banner geladen.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-primary text-2xl mb-3">8. Google Analytics 4 und Google Ads</h2>
+          <p>
+            Nach Ihrer Einwilligung verwenden wir Google Analytics 4 und Google Ads
+            Conversion-Tracking (Anbieter: Google Ireland Ltd.) zur Reichweitenmessung sowie
+            zur Erfolgsmessung unserer Online-Werbekampagnen. Verarbeitet werden u.a.
+            IP-Adresse (gekürzt), Geräte- und Browserinformationen, Standort, besuchte Seiten
+            und Conversion-Events (z.B. abgesendete Anfragen).
+          </p>
+          <p class="mt-3">
+            Eine Übertragung in die USA findet statt; geeignete Garantien werden über
+            Standardvertragsklauseln und das EU-US Data Privacy Framework gewährleistet.
+            Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung).
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-primary text-2xl mb-3">9. Google Fonts</h2>
+          <p>
+            Wir binden auf dieser Seite Google Fonts (Cormorant Garamond, Inter) ein. Dabei
+            stellt Ihr Browser eine Verbindung zu Servern von Google her, wobei die
+            IP-Adresse übertragen wird. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO
+            (berechtigtes Interesse an einheitlicher Darstellung).
+          </p>
+          <p class="mt-3 text-sm text-muted">
+            Hinweis: Die rechtssichere Variante ist die Selbst-Hosting der Schriften.
+            Bitte mit Anwalt klären, ob das umgesetzt werden soll.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-primary text-2xl mb-3">10. Rechte der betroffenen Person</h2>
+          <p>Sie haben gegenüber uns folgende Rechte hinsichtlich der Sie betreffenden personenbezogenen Daten:</p>
+          <ul class="mt-3 ml-5 list-disc space-y-1">
+            <li>Recht auf Auskunft (Art. 15 DSGVO)</li>
+            <li>Recht auf Berichtigung (Art. 16 DSGVO)</li>
+            <li>Recht auf Löschung (Art. 17 DSGVO)</li>
+            <li>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+            <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</li>
+            <li>Recht auf Widerspruch (Art. 21 DSGVO)</li>
+            <li>Recht auf Widerruf einer erteilten Einwilligung (Art. 7 Abs. 3 DSGVO)</li>
+            <li>Recht auf Beschwerde bei einer Aufsichtsbehörde (Art. 77 DSGVO)</li>
+          </ul>
+          <p class="mt-4">
+            Zur Geltendmachung Ihrer Rechte wenden Sie sich bitte an
+            <a href="mailto:info@kunstauktionshaus-leipzig.com" class="text-primary underline hover:text-accent">
+              info@kunstauktionshaus-leipzig.com</a>.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-primary text-2xl mb-3">11. Aktualität und Änderung dieser Datenschutzerklärung</h2>
+          <p>
+            Diese Datenschutzerklärung ist aktuell gültig. Durch geänderte gesetzliche oder
+            technische Anforderungen kann es notwendig werden, sie anzupassen. Die jeweils
+            aktuelle Version kann jederzeit auf dieser Seite eingesehen werden.
           </p>
         </section>
       </div>

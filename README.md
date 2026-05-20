@@ -29,42 +29,45 @@ npm run preview
 
 Der gebaute Static-Output liegt unter `dist/` und kann auf jedem Static-Hoster ausgeliefert werden.
 
-## Noch zu füllende Platzhalter (vor Go-Live)
+## Status der Platzhalter
 
-### 1. Web3Forms Access Key
-Datei: `src/components/EstimateForm.astro`
-Platzhalter: `WEB3FORMS_ACCESS_KEY_PLATZHALTER`
-Vorgehen: Auf [web3forms.com](https://web3forms.com) mit `info@schuettekunst.de` registrieren, Key kopieren, im Form-Hidden-Field eintragen. Kostenlos.
+✅ **Bereits gefüllt** (aus schuettekunst.de übernommen):
+- Impressum (`src/pages/impressum.astro`) – Adresse, Telefon, Geschäftsführer, HRB, USt-ID
+- Footer (`src/components/Footer.astro`) – Adresse, Telefon, E-Mail
+- Danke-Seite (`src/pages/danke.astro`) – Kontakt-Mail
 
-### 2. Google Tag Manager Container-ID
-Datei: `src/layouts/Base.astro` und `src/components/CookieBanner.astro`
-Platzhalter: `GTM-XXXXXXX`
-Vorgehen: In GTM einen Container für `schaetzung.schuettekunst.de` anlegen, ID an beiden Stellen ersetzen.
+⚠️ **Wichtiger Hinweis E-Mail:** Im Impressum ist die offizielle Kontakt-Mail
+`info@kunstauktionshaus-leipzig.com` (nicht `info@schuettekunst.de`). Die gesamte
+Site nutzt jetzt diese Adresse. Solltest du eine separate `info@schuettekunst.de`
+für die Subdomain wünschen, an folgenden Stellen anpassen:
+`Footer.astro`, `danke.astro`, `impressum.astro`, `datenschutz.astro`.
 
-### 3. Kontaktdaten im Footer
-Datei: `src/components/Footer.astro`
-Platzhalter: `[Platzhalter Adresse]`, `[Platzhalter Telefon]`
-Vorgehen: Vollständige Adresse + Telefonnummer eintragen.
+### Noch zu erledigen vor Go-Live
 
-### 4. Impressum & Datenschutz
-Dateien: `src/pages/impressum.astro`, `src/pages/datenschutz.astro`
-Vorgehen: Impressum von schuettekunst.de übernehmen oder neu erstellen. Datenschutzerklärung **muss vom Anwalt geprüft werden** – wichtige Punkte:
-- Web3Forms als Auftragsverarbeiter
-- Google Tag Manager / Google Analytics / Google Ads
-- Cookies (Consent-Mode V2)
-- Speicherung der Schätzungsanfragen (inkl. Foto-Uploads)
+#### 1. Web3Forms Access Key
+- Datei: `src/components/EstimateForm.astro`, Platzhalter: `WEB3FORMS_ACCESS_KEY_PLATZHALTER`
+- Vorgehen: Auf [web3forms.com](https://web3forms.com) registrieren (mit der Mail, an die die Anfragen gehen sollen — vermutlich `info@kunstauktionshaus-leipzig.com`), Key kopieren, einsetzen. Kostenlos.
 
-### 5. Bilder
+#### 2. Google Tag Manager Container-ID
+- Datei: `src/components/CookieBanner.astro`, Platzhalter: `GTM-XXXXXXX`
+- Vorgehen: In GTM einen Container für `schaetzung.schuettekunst.de` anlegen, ID dort eintragen. GTM wird erst nach Cookie-Consent geladen (Consent Mode V2 bereits konfiguriert).
+
+#### 3. Datenschutzerklärung anwaltlich prüfen lassen
+- Datei: `src/pages/datenschutz.astro`
+- Der aktuell hinterlegte Text ist ein **strukturierter Entwurf** auf Basis der DSGVO-Anforderungen für Web3Forms + GTM + Google Analytics + Google Ads. Die Datenschutzerklärung der Hauptseite war hierfür nicht ausreichend.
+- **Vor Go-Live muss ein DSGVO-Anwalt drüberschauen.**
+- Den orange-hinterlegten Hinweis-Block am Seitenanfang nach Prüfung entfernen.
+
+#### 4. Bilder
 Verzeichnis: `public/images/`
-- `team.jpg` – Bild des Teams oder eines Experten (für About-Sektion)
-- `hero.jpg` – Hochwertiges Hero-Bild (Auktionssaal oder Kunstwerk)
-- `results/*.jpg` – 9 Werke (Dateinamen siehe `public/images/results/README.md`)
+- `hero.jpg` – Hero-Bild (Auktionssaal oder Kunstwerk)
+- `team.jpg` – Team/Experten-Bild
+- `results/*.jpg` – 9 Werke, Dateinamen siehe [public/images/results/README.md](public/images/results/README.md)
+- Empfohlene Specs: JPG, max. 200 KB, mind. 1200 px Breite
+- Solange Bilder fehlen, zeigt die Site automatisch beschriftete Platzhalter — Funktionsfähigkeit ist nicht eingeschränkt.
 
-Empfohlene Bild-Specs: JPG, max. 200 KB pro Bild, Breite mind. 1200 px.
-
-### 6. Favicon
-Datei: `public/favicon.svg`
-Aktuell ist nur ein simples Platzhalter-SVG hinterlegt – ggf. durch Markenlogo ersetzen.
+#### 5. Favicon (optional)
+Datei: `public/favicon.svg` — aktuell schlichtes „S" in Markenfarben.
 
 ## Conversion-Tracking (Google Ads)
 
