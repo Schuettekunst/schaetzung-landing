@@ -36,17 +36,15 @@ Der gebaute Static-Output liegt unter `dist/` und kann auf jedem Static-Hoster a
 - Footer (`src/components/Footer.astro`) – Adresse, Telefon, E-Mail
 - Danke-Seite (`src/pages/danke.astro`) – Kontakt-Mail
 
-⚠️ **Wichtiger Hinweis E-Mail:** Im Impressum ist die offizielle Kontakt-Mail
-`info@kunstauktionshaus-leipzig.com` (nicht `info@schuettekunst.de`). Die gesamte
-Site nutzt jetzt diese Adresse. Solltest du eine separate `info@schuettekunst.de`
-für die Subdomain wünschen, an folgenden Stellen anpassen:
-`Footer.astro`, `danke.astro`, `impressum.astro`, `datenschutz.astro`.
+**Kontakt-Mail:** Die gesamte Site nutzt `info@schuettekunst.de` (im Impressum
+festgelegt — die auf der Hauptseite gepflegte `info@kunstauktionshaus-leipzig.com`
+wird hier bewusst nicht verwendet).
 
 ### Noch zu erledigen vor Go-Live
 
 #### 1. Web3Forms Access Key
 - Datei: `src/components/EstimateForm.astro`, Platzhalter: `WEB3FORMS_ACCESS_KEY_PLATZHALTER`
-- Vorgehen: Auf [web3forms.com](https://web3forms.com) registrieren (mit der Mail, an die die Anfragen gehen sollen — vermutlich `info@kunstauktionshaus-leipzig.com`), Key kopieren, einsetzen. Kostenlos.
+- Vorgehen: Auf [web3forms.com](https://web3forms.com) mit `info@schuettekunst.de` registrieren, Key kopieren, einsetzen. Kostenlos.
 
 #### 2. Google Tag Manager Container-ID
 - Datei: `src/components/CookieBanner.astro`, Platzhalter: `GTM-XXXXXXX`
