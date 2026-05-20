@@ -1,0 +1,146 @@
+---
+// DSGVO-konformer Cookie-Banner mit Google Consent Mode V2
+// GTM wird erst nach Klick auf "Akzeptieren" geladen.
+//
+// HINWEIS: Container-ID GTM-XXXXXXX vor Go-Live durch die echte ID ersetzen.
+const GTM_ID = 'GTM-XXXXXXX';
+---
+
+<div
+  id="cookieBanner"
+  class="fixed inset-x-0 bottom-0 z-50 hidden"
+  role="dialog"
+  aria-modal="false"
+  aria-labelledby="cookieBannerTitle"
+>
+  <div class="mx-auto max-w-content m-4 sm:m-6">
+    <div class="bg-primary text-cream shadow-2xl border border-accent/30">
+      <div class="p-6 sm:p-8 grid lg:grid-cols-[1fr_auto] gap-6 items-center">
+        <div>
+          <h2 id="cookieBannerTitle" class="font-serif text-cream text-xl mb-2">
+            Cookies & Tracking
+          </h2>
+          <p class="text-sm text-cream/85 leading-relaxed max-w-2xl">
+            Wir verwenden Cookies, um unsere Website zu optimieren und Werbung
+            auszuspielen. Mit Klick auf „Akzeptieren" stimmen Sie der Verwendung zu.
+            Mehr in unserer
+            <a href="/datenschutz" class="underline hover:text-accent">Datenschutzerklärung</a>.
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3 lg:flex-col xl:flex-row shrink-0">
+          <button
+            id="cookieAccept"
+            type="button"
+            class="bg-accent text-white border border-accent px-6 py-3 text-sm uppercase tracking-wider2 font-medium hover:bg-accent-600 transition-colors"
+          >
+            Akzeptieren
+          </button>
+          <button
+            id="cookieReject"
+            type="button"
+            class="bg-transparent text-cream border border-cream/30 px-6 py-3 text-sm uppercase tracking-wider2 font-medium hover:border-cream/60 transition-colors"
+          >
+            Ablehnen
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ GTM_ID }}>
+  (function () {
+    const STORAGE_KEY = 'cookie-consent-v1';
+    const banner = document.getElementById('cookieBanner');
+    const acceptBtn = document.getElementById('cookieAccept');
+    const rejectBtn = document.getElementById('cookieReject');
+
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
+
+    // Lädt den Google Tag Manager (erst nach Consent aufgerufen)
+    function loadGTM() {
+      if (!GTM_ID || GTM_ID === 'GTM-XXXXXXX') {
+        console.info('[GTM] Kein gültiger Container — Tag-Lade-Vorgang übersprungen.');
+        return;
+      }
+      if (window.__gtmLoaded) return;
+      window.__gtmLoaded = true;
+
+      // Standard-GTM-Snippet
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        const f = d.getElementsByTagName(s)[0];
+        const j = d.createElement(s);
+        const dl = l !== 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', GTM_ID);
+
+      // noscript-Fallback (für User mit deaktiviertem JS bringt das nichts, ist aber Standard)
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://www.googletagmanager.com/ns.html?id=' + GTM_ID;
+      iframe.height = '0';
+      iframe.width = '0';
+      iframe.style.display = 'none';
+      iframe.style.visibility = 'hidden';
+      const noscript = document.createElement('noscript');
+      noscript.appendChild(iframe);
+      document.body.insertBefore(noscript, document.body.firstChild);
+    }
+
+    function accept() {
+      localStorage.setItem(STORAGE_KEY, 'accepted');
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted',
+        analytics_storage: 'granted',
+      });
+      hideBanner();
+      loadGTM();
+    }
+
+    function reject() {
+      localStorage.setItem(STORAGE_KEY, 'rejected');
+      gtag('consent', 'update', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+      });
+      hideBanner();
+    }
+
+    function hideBanner() {
+      if (banner) banner.classList.add('hidden');
+    }
+
+    function showBanner() {
+      if (banner) banner.classList.remove('hidden');
+    }
+
+    acceptBtn?.addEventListener('click', accept);
+    rejectBtn?.addEventListener('click', reject);
+
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored === 'accepted') {
+      // User hatte schon zugestimmt → Consent direkt updaten + GTM laden
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted',
+        analytics_storage: 'granted',
+      });
+      loadGTM();
+    } else if (stored === 'rejected') {
+      // Bereits abgelehnt → Banner aus, kein GTM
+    } else {
+      // Noch keine Entscheidung → Banner zeigen
+      showBanner();
+    }
+  })();
+</script>

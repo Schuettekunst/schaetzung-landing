@@ -1,0 +1,61 @@
+---
+import Base from '../layouts/Base.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base
+  title="Impressum | Schütte Kunstauktionen"
+  description="Impressum der Schütte Kunstauktionen GmbH."
+>
+  <main class="flex-1 bg-cream">
+    <div class="container-content py-20 lg:py-28 max-w-3xl">
+      <a href="/" class="text-sm text-muted hover:text-primary transition-colors">← Zur Startseite</a>
+      <h1 class="mt-6 font-serif text-primary text-4xl sm:text-5xl">Impressum</h1>
+
+      {/* Hier Impressum von schuettekunst.de übernehmen oder neu erstellen */}
+      <div class="mt-10 space-y-6 text-ink/85 leading-relaxed">
+        <p class="italic text-muted">
+          [Platzhalter: Hier Impressum von schuettekunst.de übernehmen oder neu erstellen.]
+        </p>
+
+        <section>
+          <h2 class="font-serif text-primary text-2xl mb-3">Angaben gemäß § 5 TMG</h2>
+          <p>
+            Schütte Kunstauktionen GmbH<br />
+            [Straße + Hausnummer]<br />
+            [PLZ + Ort]<br />
+            Deutschland
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-primary text-2xl mb-3">Kontakt</h2>
+          <p>
+            Telefon: [Platzhalter Telefon]<br />
+            E-Mail: <a href="mailto:info@schuettekunst.de" class="text-primary underline">info@schuettekunst.de</a>
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-primary text-2xl mb-3">Handelsregister</h2>
+          <p>
+            Registergericht: [Platzhalter]<br />
+            Registernummer: [Platzhalter]<br />
+            Umsatzsteuer-ID: [Platzhalter]
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-primary text-2xl mb-3">Vertretungsberechtigt</h2>
+          <p>[Platzhalter: Geschäftsführer]</p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-primary text-2xl mb-3">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
+          <p>[Platzhalter Name + Anschrift]</p>
+        </section>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Base>

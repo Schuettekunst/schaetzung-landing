@@ -1,0 +1,60 @@
+---
+// Footer mit Kontakt, Links, Copyright
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-primary text-cream/90">
+  <div class="container-content py-16">
+    <div class="grid md:grid-cols-3 gap-10">
+      <!-- Kontakt -->
+      <div>
+        <h3 class="font-serif text-cream text-xl mb-5">Kontakt</h3>
+        <address class="not-italic text-sm leading-relaxed space-y-2">
+          <p class="font-medium text-cream">Schütte Kunstauktionen GmbH</p>
+          <p>[Platzhalter Adresse]</p>
+          <p>
+            Tel.
+            <a href="tel:" class="hover:text-accent transition-colors">[Platzhalter Telefon]</a>
+          </p>
+          <p>
+            <a href="mailto:info@schuettekunst.de" class="hover:text-accent transition-colors">
+              info@schuettekunst.de
+            </a>
+          </p>
+        </address>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <h3 class="font-serif text-cream text-xl mb-5">Rechtliches</h3>
+        <ul class="space-y-3 text-sm">
+          <li><a href="/impressum" class="hover:text-accent transition-colors">Impressum</a></li>
+          <li><a href="/datenschutz" class="hover:text-accent transition-colors">Datenschutz</a></li>
+          <li>
+            <a
+              href="https://schuettekunst.de"
+              class="hover:text-accent transition-colors"
+              rel="noopener"
+            >
+              Hauptseite schuettekunst.de →
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Hinweis -->
+      <div>
+        <h3 class="font-serif text-cream text-xl mb-5">Über uns</h3>
+        <p class="text-sm text-cream/70 leading-relaxed">
+          Über 30 Jahre Erfahrung im internationalen Kunstmarkt. Sachkundige Bewertung,
+          weltweiter Verkauf, persönliche Betreuung.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-14 pt-8 border-t border-cream/15 flex flex-col sm:flex-row justify-between gap-4 text-xs text-cream/60">
+      <p>© {year} Schütte Kunstauktionen GmbH</p>
+      <p>schaetzung.schuettekunst.de</p>
+    </div>
+  </div>
+</footer>

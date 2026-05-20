@@ -1,0 +1,117 @@
+---
+// Sektion 1: Hero – vertrauensbildender Einstieg
+---
+
+<header class="relative overflow-hidden bg-cream">
+  <!-- Dezenter Header-Strip mit Markenname -->
+  <div class="border-b border-border/60">
+    <div class="container-content flex items-center justify-between py-5">
+      <a href="/" class="font-serif text-xl text-primary tracking-tight">
+        Schütte <span class="text-accent">Kunstauktionen</span>
+      </a>
+      <a
+        href="#formular"
+        class="hidden sm:inline-flex items-center text-sm text-primary hover:text-accent transition-colors"
+      >
+        Jetzt schätzen lassen →
+      </a>
+    </div>
+  </div>
+
+  <section class="relative">
+    <div class="container-content py-16 sm:py-20 lg:py-28">
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <!-- Text -->
+        <div class="lg:col-span-7">
+          <span class="eyebrow">Kostenlose Expertise · 30 Jahre Erfahrung</span>
+
+          <h1 class="font-serif text-primary text-4xl sm:text-5xl lg:text-display-lg leading-[1.05] tracking-tight">
+            Ihr Kunstwerk –<br />
+            <span class="italic text-accent-700">kostenlos geschätzt</span>
+            <br />
+            von Experten mit 30 Jahren Markterfahrung
+          </h1>
+
+          <p class="mt-8 text-lg text-muted leading-relaxed max-w-xl">
+            Gemälde, Grafiken und Skulpturen vom 18. Jahrhundert bis zur Gegenwart.
+            Kostenlose Bewertung durch Kunsthistoriker. Bundesweite, versicherte Abholung.
+            Weltweiter Verkauf zu Bestkonditionen.
+          </p>
+
+          <div class="mt-10 flex flex-col sm:flex-row gap-4">
+            <a href="#formular" class="btn-primary">
+              Jetzt kostenlos schätzen lassen
+            </a>
+            <a href="#formular?kontaktart=rueckruf" class="btn-secondary" data-prefill="rueckruf">
+              Rückruf vereinbaren
+            </a>
+          </div>
+
+          <p class="mt-6 text-sm italic text-muted">
+            Antwort innerhalb von 24 Stunden · 30 Jahre Erfahrung · Bundesweite Abholung kostenfrei
+          </p>
+        </div>
+
+        <!-- Bild -->
+        <div class="lg:col-span-5">
+          <div class="relative aspect-[4/5] bg-primary/5 border border-border overflow-hidden">
+            <picture>
+              <source srcset="/images/hero.webp" type="image/webp" />
+              <img
+                src="/images/hero.jpg"
+                alt="Auktionssaal mit Gemälden – Schütte Kunstauktionen"
+                class="w-full h-full object-cover"
+                loading="eager"
+                decoding="async"
+                width="800"
+                height="1000"
+                onerror="this.style.display='none';this.parentElement.parentElement.classList.add('is-placeholder')"
+              />
+            </picture>
+            <!-- Fallback-Platzhalter wenn Bild fehlt -->
+            <div class="is-placeholder-content absolute inset-0 hidden items-center justify-center text-center p-8 bg-gradient-to-br from-primary-900 to-primary-700 text-cream">
+              <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 mx-auto mb-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.25">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                </svg>
+                <p class="font-serif text-xl">Auktionssaal-Bild</p>
+                <p class="text-sm text-cream/60 mt-2">Datei: <code>/public/images/hero.jpg</code></p>
+              </div>
+            </div>
+
+            <!-- Dezenter Goldakzent unten -->
+            <div class="absolute bottom-0 left-0 right-0 h-1 bg-accent"></div>
+          </div>
+
+          <!-- Mini-Quote -->
+          <figure class="mt-8 border-l-2 border-accent pl-5">
+            <blockquote class="font-serif italic text-primary text-lg leading-snug">
+              „Eine sachkundige Bewertung ist der erste Schritt zum erfolgreichen Verkauf."
+            </blockquote>
+            <figcaption class="mt-2 text-xs uppercase tracking-wider2 text-muted">
+              Schütte Kunstauktionen
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+
+<style>
+  /* Toggle Placeholder wenn Bild fehlt */
+  .is-placeholder .is-placeholder-content { display: flex !important; }
+</style>
+
+<script>
+  // Sekundärer CTA: Pre-Select "Rückruf" im Formular
+  document.querySelectorAll('[data-prefill="rueckruf"]').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      const radio = document.querySelector<HTMLInputElement>('input[name="kontaktart"][value="Rückruf"]');
+      if (radio) radio.checked = true;
+      const target = document.getElementById('formular');
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>

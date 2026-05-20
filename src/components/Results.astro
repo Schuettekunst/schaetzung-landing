@@ -1,0 +1,70 @@
+---
+// Sektion 3: Erzielte Ergebnisse – social proof durch konkrete Auktionszuschläge
+const results = [
+  { artist: 'Neo Rauch',                    price: '93.947 €',  file: 'neo-rauch.jpg' },
+  { artist: 'Wolfgang Mattheuer (Gemälde)', price: '100.000 €', file: 'mattheuer-gemaelde.jpg' },
+  { artist: 'Michael Triegel',              price: '85.800 €',  file: 'triegel.jpg' },
+  { artist: 'Wolfgang Mattheuer (Skulptur)', price: '43.560 €', file: 'mattheuer-skulptur.jpg' },
+  { artist: 'Karl Schmidt-Rottluff',        price: '33.595 €',  file: 'schmidt-rottluff.jpg' },
+  { artist: 'Arno Rink',                    price: '33.595 €',  file: 'arno-rink.jpg' },
+  { artist: 'Jean Lambert-Rucki',           price: '32.683 €',  file: 'lambert-rucki.jpg' },
+  { artist: 'Otto Müller',                  price: '25.080 €',  file: 'otto-mueller.jpg' },
+  { artist: 'Werner Stötzer',               price: '19.800 €',  file: 'stoetzer.jpg' },
+];
+---
+
+<section id="ergebnisse" class="bg-cream">
+  <div class="container-content py-20 lg:py-28">
+    <div class="max-w-2xl">
+      <span class="eyebrow">Aktuelle Auktionsergebnisse</span>
+      <h2 class="section-title">Was wir für unsere Einlieferer erreichen</h2>
+      <p class="section-sub">
+        Eine Auswahl aktueller Zuschläge aus unseren Auktionen. Von Klassischer Moderne
+        über Leipziger Schule bis zu zeitgenössischer Kunst.
+      </p>
+    </div>
+
+    <div class="hairline mt-12 mb-12"></div>
+
+    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14">
+      {results.map((r) => (
+        <li class="group">
+          <figure>
+            <div class="relative aspect-[4/5] bg-white border border-border overflow-hidden">
+              <img
+                src={`/images/results/${r.file}`}
+                alt={`Werk von ${r.artist}, versteigert über Schütte Kunstauktionen`}
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                loading="lazy"
+                decoding="async"
+                width="600"
+                height="750"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+              />
+              <div
+                class="absolute inset-0 hidden flex-col items-center justify-center text-center p-6 bg-gradient-to-br from-primary-50 to-cream"
+                aria-hidden="true"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 mb-3 text-accent/70" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 19.5h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5z"/>
+                </svg>
+                <span class="font-serif text-primary/70 text-base">{r.artist}</span>
+                <code class="text-[10px] text-muted mt-2">{r.file}</code>
+              </div>
+            </div>
+            <figcaption class="mt-5">
+              <h3 class="font-serif text-primary text-xl leading-tight">{r.artist}</h3>
+              <p class="mt-2 text-sm text-muted">
+                Ergebnis: <span class="text-accent font-medium tracking-wide">{r.price}</span>
+              </p>
+            </figcaption>
+          </figure>
+        </li>
+      ))}
+    </ul>
+
+    <p class="mt-16 text-center text-xs text-muted italic">
+      Erfolgreich versteigert über Schütte Kunstauktionen. Alle Ergebnisse inkl. Aufgeld.
+    </p>
+  </div>
+</section>

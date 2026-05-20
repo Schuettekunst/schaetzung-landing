@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Vielen Dank für Ihre Anfrage | Schütte Kunstauktionen';
+const description = 'Ihre Schätzungsanfrage ist bei uns eingegangen. Wir melden uns innerhalb von 24 Stunden bei Ihnen.';
+---
+
+<Base title={title} description={description}>
+  <main class="flex-1 bg-cream">
+    <div class="container-content py-24 lg:py-32 flex flex-col items-center text-center">
+      <!-- Erfolgsanzeige -->
+      <div class="w-20 h-20 rounded-full bg-accent/15 flex items-center justify-center mb-8">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+        </svg>
+      </div>
+
+      <span class="eyebrow">Anfrage erfolgreich übermittelt</span>
+      <h1 class="font-serif text-primary text-4xl sm:text-5xl lg:text-display leading-tight max-w-2xl">
+        Vielen Dank für Ihre Anfrage
+      </h1>
+
+      <p class="mt-8 text-lg text-muted leading-relaxed max-w-2xl">
+        Wir haben Ihre Schätzungsanfrage erhalten und melden uns innerhalb von 24 Stunden
+        bei Ihnen. Bei Rückfragen erreichen Sie uns unter
+        <a href="mailto:info@schuettekunst.de" class="text-primary underline hover:text-accent">
+          info@schuettekunst.de
+        </a>.
+      </p>
+
+      <div class="mt-12">
+        <a href="/" class="btn-primary">
+          Zurück zur Startseite
+        </a>
+      </div>
+
+      <div class="hairline mt-20 mb-8"></div>
+      <p class="text-xs uppercase tracking-wider2 text-muted">
+        Schütte Kunstauktionen · 30 Jahre Erfahrung
+      </p>
+    </div>
+  </main>
+  <Footer />
+</Base>
+
+<!-- HAUPT-CONVERSION-SIGNAL für Google Ads -->
+<script is:inline>
+  (function () {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'lead_thankyou_view' });
+  })();
+</script>

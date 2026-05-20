@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-cream text-ink font-sans antialiased;
+    font-feature-settings: 'ss01', 'cv11';
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-serif text-primary;
+    font-feature-settings: 'liga', 'dlig';
+  }
+
+  ::selection {
+    @apply bg-accent/30 text-primary;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-cream;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-medium tracking-wide uppercase transition-all duration-200 border;
+    letter-spacing: 0.08em;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary text-cream border-primary hover:bg-primary-800 hover:border-primary-800;
+  }
+
+  .btn-secondary {
+    @apply btn bg-transparent text-primary border-primary/30 hover:bg-primary hover:text-cream hover:border-primary;
+  }
+
+  .btn-accent {
+    @apply btn bg-accent text-white border-accent hover:bg-accent-600 hover:border-accent-600;
+  }
+
+  .container-content {
+    @apply mx-auto max-w-content px-5 sm:px-6 lg:px-8;
+  }
+
+  .eyebrow {
+    @apply inline-block text-xs uppercase tracking-wider2 text-accent font-medium mb-4;
+  }
+
+  .section-title {
+    @apply font-serif text-primary text-4xl sm:text-5xl lg:text-display leading-tight;
+  }
+
+  .section-sub {
+    @apply mt-5 text-muted text-lg max-w-2xl;
+  }
+
+  .hairline {
+    @apply h-px w-12 bg-accent;
+  }
+}

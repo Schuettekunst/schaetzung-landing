@@ -1,0 +1,82 @@
+---
+import Base from '../layouts/Base.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base
+  title="Datenschutzerklärung | Schütte Kunstauktionen"
+  description="Datenschutzerklärung der Schätzungs-Landingpage von Schütte Kunstauktionen."
+>
+  <main class="flex-1 bg-cream">
+    <div class="container-content py-20 lg:py-28 max-w-3xl">
+      <a href="/" class="text-sm text-muted hover:text-primary transition-colors">← Zur Startseite</a>
+      <h1 class="mt-6 font-serif text-primary text-4xl sm:text-5xl">Datenschutzerklärung</h1>
+
+      {/*
+        Hier Datenschutzerklärung einfügen – muss DSGVO-konform sein,
+        idealerweise vom Anwalt geprüft.
+        Wichtige Punkte:
+        - Web3Forms als Auftragsverarbeiter
+        - Google Tag Manager / Google Analytics / Google Ads
+        - Cookies
+        - Speicherung der Schätzungsanfragen
+      */}
+      <div class="mt-10 space-y-8 text-ink/85 leading-relaxed">
+        <p class="italic text-muted">
+          [Platzhalter – Diese Datenschutzerklärung muss vor Go-Live von einem auf
+          DSGVO spezialisierten Anwalt geprüft und finalisiert werden.]
+        </p>
+
+        <section>
+          <h2 class="font-serif text-primary text-2xl mb-3">1. Verantwortlicher</h2>
+          <p>
+            Schütte Kunstauktionen GmbH<br />
+            [Adresse]<br />
+            E-Mail: info@schuettekunst.de
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-primary text-2xl mb-3">2. Schätzungsanfrage über das Kontaktformular</h2>
+          <p>
+            Wenn Sie uns über das Schätzungsformular eine Anfrage übermitteln, werden Ihre
+            Angaben (Name, E-Mail, ggf. Telefonnummer, Angaben zum Werk, hochgeladene Fotos)
+            zwecks Bearbeitung Ihrer Anfrage und für den Fall von Anschlussfragen bei uns
+            gespeichert. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b und f DSGVO.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-primary text-2xl mb-3">3. Auftragsverarbeiter Web3Forms</h2>
+          <p>
+            Für die technische Übermittlung des Formulars nutzen wir den Dienst Web3Forms
+            (Web3Forms, betrieben von gleichnamigem Anbieter). Mit dem Anbieter besteht
+            ein Auftragsverarbeitungsvertrag (AVV) gemäß Art. 28 DSGVO.
+            [Details ergänzen.]
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-primary text-2xl mb-3">4. Cookies und Tracking</h2>
+          <p>
+            Auf dieser Website kommen nur essenzielle Cookies zum Einsatz, solange Sie
+            keine Einwilligung in den Banner gegeben haben. Erst nach aktiver Zustimmung
+            laden wir den Google Tag Manager, über den Google Analytics 4 und Google Ads
+            Conversion-Tracking eingebunden werden. Wir nutzen den Google Consent Mode V2.
+            Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO sowie § 25 Abs. 1 TTDSG.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-primary text-2xl mb-3">5. Ihre Rechte</h2>
+          <p>
+            Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der
+            Verarbeitung, Datenübertragbarkeit sowie auf Beschwerde bei einer
+            Aufsichtsbehörde. Wenden Sie sich dazu an info@schuettekunst.de.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Base>

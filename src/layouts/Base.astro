@@ -1,0 +1,89 @@
+---
+import '../styles/global.css';
+import CookieBanner from '../components/CookieBanner.astro';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+}
+
+const {
+  title = 'Kunst schätzen lassen – Kostenlos & unverbindlich | Schütte Kunstauktionen',
+  description = 'Gemälde, Grafiken und Skulpturen kostenlos schätzen lassen. Bewertung durch Experten mit 30 Jahren Erfahrung. Bundesweite Abholung. Antwort innerhalb 24h.',
+  canonical = Astro.url.href,
+  ogImage = '/og-image.jpg',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#1a2332" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="Schütte Kunstauktionen" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site ?? 'https://schaetzung.schuettekunst.de').toString()} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+
+    <!-- Preconnect für Google Fonts (nur Fonts, kein GTM ohne Consent) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    />
+
+    <!-- GTM HEAD HIER -->
+    <!--
+      Google Tag Manager wird NICHT direkt eingebunden.
+      Stattdessen lädt der Cookie-Banner GTM erst nach Consent (Consent Mode V2).
+      Container-ID muss in CookieBanner.astro eingetragen werden (GTM-XXXXXXX).
+    -->
+
+    <!-- Default Consent State (vor GTM-Load, Consent Mode V2) -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted',
+        wait_for_update: 500,
+      });
+      gtag('set', 'ads_data_redaction', true);
+    </script>
+  </head>
+  <body class="min-h-screen flex flex-col bg-cream text-ink">
+    <!-- GTM BODY HIER -->
+    <!-- noscript-Fallback nach GTM-Aktivierung hier einfügen, sobald Container-ID bekannt -->
+
+    <slot />
+
+    <CookieBanner />
+  </body>
+</html>

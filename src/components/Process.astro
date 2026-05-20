@@ -1,0 +1,48 @@
+---
+// Sektion 4: Prozess – vier nummerierte Schritte
+const steps = [
+  {
+    n: '01',
+    title: 'Anfrage senden',
+    text: 'Laden Sie Fotos Ihres Werks hoch oder vereinbaren Sie einen Rückruf. Wir benötigen wenige Angaben – den Rest klären wir gemeinsam.',
+  },
+  {
+    n: '02',
+    title: 'Kostenlose Einschätzung',
+    text: 'Unsere Experten – Kunsthistoriker mit über 30 Jahren Markterfahrung – bewerten Ihr Werk und melden sich innerhalb von 24 Stunden bei Ihnen zurück.',
+  },
+  {
+    n: '03',
+    title: 'Kostenlose Abholung',
+    text: 'Sind Sie mit unserem Vorschlag einverstanden, holen wir Ihr Werk kostenlos und vollversichert in ganz Deutschland bei Ihnen ab.',
+  },
+  {
+    n: '04',
+    title: 'Auktion und Auszahlung',
+    text: 'Wir präsentieren Ihr Werk auf der für Sie besten Plattform – weltweit. Nach erfolgreichem Verkauf erhalten Sie zeitnah Ihre Auszahlung.',
+  },
+];
+---
+
+<section id="prozess" class="bg-white border-y border-border">
+  <div class="container-content py-20 lg:py-28">
+    <div class="max-w-2xl">
+      <span class="eyebrow">Ablauf</span>
+      <h2 class="section-title">In vier Schritten zum erfolgreichen Verkauf</h2>
+    </div>
+
+    <ol class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
+      {steps.map((s) => (
+        <li class="bg-white p-8 lg:p-10 flex flex-col">
+          <span class="font-serif text-accent text-5xl lg:text-6xl leading-none">{s.n}</span>
+          <h3 class="font-serif text-primary text-2xl mt-6 font-medium leading-snug">{s.title}</h3>
+          <p class="mt-4 text-muted text-[15px] leading-relaxed">{s.text}</p>
+        </li>
+      ))}
+    </ol>
+
+    <div class="mt-14 text-center">
+      <a href="#formular" class="btn-primary">Jetzt mit Schritt 1 starten</a>
+    </div>
+  </div>
+</section>

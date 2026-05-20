@@ -1,0 +1,76 @@
+---
+// Sektion 7: FAQ – HTML-natives details/summary, kein JS nötig
+const faqs = [
+  {
+    q: 'Was kostet die Schätzung?',
+    a: 'Die Schätzung ist für Sie kostenlos und unverbindlich. Es entstehen keinerlei Kosten – auch wenn Sie sich am Ende gegen einen Verkauf entscheiden.',
+  },
+  {
+    q: 'Welche Werke nehmen Sie an?',
+    a: 'Wir vermitteln hochwertige Gemälde, Grafiken und Skulpturen vom 18. Jahrhundert bis zur Gegenwart. Schwerpunkte sind Klassische Moderne, Leipziger Schule, Nachkriegsmoderne und zeitgenössische Kunst – wir prüfen aber gerne jedes wertvolle Werk individuell.',
+  },
+  {
+    q: 'Wie funktioniert die Abholung?',
+    a: 'Wir holen Ihr Werk kostenlos und vollversichert in ganz Deutschland bei Ihnen ab. Sie müssen sich um nichts kümmern – wir organisieren Transport und Versicherung.',
+  },
+  {
+    q: 'Wie schnell bekomme ich eine Einschätzung?',
+    a: 'In der Regel melden wir uns innerhalb von 24 Stunden bei Ihnen mit einer ersten Einschätzung Ihres Werks.',
+  },
+  {
+    q: 'Wie hoch ist die Provision?',
+    a: 'Die Konditionen vereinbaren wir individuell – abhängig von Werk und Schätzwert. Wir bieten Bestkonditionen und sind transparent in allen Kostenpunkten.',
+  },
+  {
+    q: 'Wo wird mein Werk verkauft?',
+    a: 'Wir verkaufen weltweit über alle relevanten Auktionsplattformen. Je nach Werk wählen wir gemeinsam mit Ihnen den optimalen Verkaufsweg, um den bestmöglichen Preis zu erzielen.',
+  },
+  {
+    q: 'Was, wenn ich mich gegen den Verkauf entscheide?',
+    a: 'Kein Problem. Die Schätzung ist unverbindlich. Sie entscheiden in Ruhe, ob und wie Sie weitermachen möchten.',
+  },
+  {
+    q: 'Wie vertraulich sind meine Informationen?',
+    a: 'Absolute Diskretion ist für uns selbstverständlich. Alle Anfragen werden DSGVO-konform und streng vertraulich behandelt.',
+  },
+];
+---
+
+<section id="faq" class="bg-white border-y border-border">
+  <div class="container-content py-20 lg:py-28">
+    <div class="grid lg:grid-cols-12 gap-12">
+      <div class="lg:col-span-4">
+        <span class="eyebrow">FAQ</span>
+        <h2 class="section-title">Häufige Fragen</h2>
+        <p class="section-sub">
+          Antworten auf die häufigsten Fragen zu Schätzung, Abholung und Verkauf.
+        </p>
+      </div>
+
+      <div class="lg:col-span-8">
+        <ul class="divide-y divide-border border-y border-border">
+          {faqs.map((item) => (
+            <li>
+              <details class="group">
+                <summary class="flex items-start justify-between gap-6 py-6 cursor-pointer list-none">
+                  <span class="font-serif text-primary text-lg sm:text-xl pr-4 leading-snug">{item.q}</span>
+                  <span class="shrink-0 mt-1 text-accent transition-transform duration-300 group-open:rotate-45" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+                    </svg>
+                  </span>
+                </summary>
+                <div class="pb-6 pr-12 text-muted leading-relaxed">{item.a}</div>
+              </details>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Safari: list-none auf summary erzwingen */
+  summary::-webkit-details-marker { display: none; }
+</style>

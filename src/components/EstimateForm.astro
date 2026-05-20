@@ -1,0 +1,352 @@
+---
+// Sektion 6: Schätzformular
+// Hier den Web3Forms Access Key einsetzen – kostenlos erhältlich nach Registrierung
+// mit info@schuettekunst.de auf web3forms.com
+const WEB3FORMS_ACCESS_KEY = 'WEB3FORMS_ACCESS_KEY_PLATZHALTER';
+
+const werkartOptions = ['Gemälde', 'Grafik / Druck', 'Skulptur', 'Zeichnung / Aquarell', 'Foto', 'Sonstiges'];
+const wertOptions = [
+  'Unter 1.000 €',
+  '1.000 – 5.000 €',
+  '5.000 – 20.000 €',
+  '20.000 – 100.000 €',
+  'Über 100.000 €',
+  'Unbekannt',
+];
+---
+
+<section id="formular" class="bg-primary text-cream relative scroll-mt-8">
+  <!-- dezente Goldlinie oben -->
+  <div class="absolute top-0 left-0 right-0 h-px bg-accent/40"></div>
+
+  <div class="container-content py-20 lg:py-28">
+    <div class="grid lg:grid-cols-12 gap-12">
+      <!-- Headline-Spalte -->
+      <div class="lg:col-span-5">
+        <span class="inline-block text-xs uppercase tracking-wider2 text-accent font-medium mb-4">
+          Kostenlose Schätzung
+        </span>
+        <h2 class="font-serif text-cream text-4xl sm:text-5xl lg:text-display leading-tight">
+          Jetzt kostenlos schätzen lassen
+        </h2>
+        <p class="mt-6 text-cream/80 text-lg leading-relaxed">
+          Senden Sie uns Fotos und Eckdaten Ihres Werks. Wir melden uns innerhalb
+          von 24 Stunden mit einer ersten Einschätzung bei Ihnen.
+        </p>
+
+        <ul class="mt-10 space-y-4 text-cream/80 text-[15px]">
+          {[
+            'Kostenfrei und unverbindlich',
+            'Antwort innerhalb von 24 Stunden',
+            'DSGVO-konform, streng vertraulich',
+            'Bundesweite, versicherte Abholung',
+          ].map((b) => (
+            <li class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+              </svg>
+              <span>{b}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Form-Spalte -->
+      <div class="lg:col-span-7">
+        <form
+          id="estimateForm"
+          method="POST"
+          action="https://api.web3forms.com/submit"
+          enctype="multipart/form-data"
+          class="bg-cream text-ink p-6 sm:p-10 space-y-7"
+          novalidate
+        >
+          <!-- Web3Forms Hidden Fields -->
+          <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
+          <input type="hidden" name="subject" value="Neue Schätzungsanfrage über schaetzung.schuettekunst.de" />
+          <input type="hidden" name="from_name" value="Schaetzung Landing Page" />
+          <input type="hidden" name="redirect" value="https://schaetzung.schuettekunst.de/danke" />
+          <!-- Honeypot gegen Bots (Web3Forms-Standard) -->
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
+
+          <!-- 1. Kontaktart -->
+          <fieldset>
+            <legend class="block text-sm font-medium text-primary mb-3">
+              Wie möchten Sie kontaktiert werden? <span class="text-accent">*</span>
+            </legend>
+            <div class="grid grid-cols-3 gap-2" role="radiogroup">
+              {['E-Mail', 'Rückruf', 'Beides'].map((opt) => (
+                <label class="relative cursor-pointer">
+                  <input
+                    type="radio"
+                    name="kontaktart"
+                    value={opt}
+                    required
+                    checked={opt === 'E-Mail'}
+                    class="peer sr-only"
+                  />
+                  <span class="block text-center text-sm py-3 px-3 border border-border bg-white peer-checked:bg-primary peer-checked:text-cream peer-checked:border-primary transition-colors hover:border-primary/50">
+                    {opt}
+                  </span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <div class="grid sm:grid-cols-2 gap-5">
+            <!-- 2. Name -->
+            <div>
+              <label for="name" class="block text-sm font-medium text-primary mb-2">
+                Ihr Name <span class="text-accent">*</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                autocomplete="name"
+                class="w-full px-4 py-3 border border-border bg-white focus:border-primary outline-none transition-colors"
+              />
+            </div>
+
+            <!-- 3. E-Mail -->
+            <div>
+              <label for="email" class="block text-sm font-medium text-primary mb-2">
+                E-Mail-Adresse <span class="text-accent">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                autocomplete="email"
+                class="w-full px-4 py-3 border border-border bg-white focus:border-primary outline-none transition-colors"
+              />
+            </div>
+          </div>
+
+          <!-- 4. Telefon -->
+          <div>
+            <label for="telefon" class="block text-sm font-medium text-primary mb-2">
+              Telefonnummer
+              <span class="text-accent" id="telefonStar">*</span>
+            </label>
+            <input
+              type="tel"
+              id="telefon"
+              name="telefon"
+              autocomplete="tel"
+              class="w-full px-4 py-3 border border-border bg-white focus:border-primary outline-none transition-colors"
+            />
+            <p class="mt-2 text-xs text-muted" id="telefonHint">Erforderlich für Rückruf</p>
+          </div>
+
+          <div class="border-t border-border pt-7">
+            <h3 class="font-serif text-primary text-xl mb-5">Angaben zum Werk</h3>
+
+            <!-- 5. Künstler -->
+            <div class="mb-5">
+              <label for="kuenstler" class="block text-sm font-medium text-primary mb-2">
+                Künstler / Signatur <span class="text-muted font-normal">(falls bekannt)</span>
+              </label>
+              <input
+                type="text"
+                id="kuenstler"
+                name="kuenstler"
+                class="w-full px-4 py-3 border border-border bg-white focus:border-primary outline-none transition-colors"
+              />
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-5 mb-5">
+              <!-- 6. Werkart -->
+              <div>
+                <label for="werkart" class="block text-sm font-medium text-primary mb-2">
+                  Art des Werks <span class="text-accent">*</span>
+                </label>
+                <select
+                  id="werkart"
+                  name="werkart"
+                  required
+                  class="w-full px-4 py-3 border border-border bg-white focus:border-primary outline-none transition-colors appearance-none bg-no-repeat bg-[right_1rem_center]"
+                  style="background-image: url(&quot;data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%231a2332'%3E%3Cpath d='M5.5 7.5L10 12l4.5-4.5'/%3E%3C/svg%3E&quot;); background-size: 1.25rem"
+                >
+                  <option value="">— Bitte wählen —</option>
+                  {werkartOptions.map((o) => <option value={o}>{o}</option>)}
+                </select>
+              </div>
+
+              <!-- 7. Technik -->
+              <div>
+                <label for="technik" class="block text-sm font-medium text-primary mb-2">
+                  Technik / Material
+                </label>
+                <input
+                  type="text"
+                  id="technik"
+                  name="technik"
+                  placeholder="z.B. Öl auf Leinwand, Bronze, Aquarell auf Papier"
+                  class="w-full px-4 py-3 border border-border bg-white focus:border-primary outline-none transition-colors placeholder:text-muted/60"
+                />
+              </div>
+            </div>
+
+            <!-- 8. Maße -->
+            <div class="mb-5">
+              <label for="masse" class="block text-sm font-medium text-primary mb-2">
+                Maße <span class="text-muted font-normal">(H × B × T in cm)</span>
+              </label>
+              <input
+                type="text"
+                id="masse"
+                name="masse"
+                class="w-full px-4 py-3 border border-border bg-white focus:border-primary outline-none transition-colors"
+              />
+            </div>
+
+            <!-- 9. Beschreibung -->
+            <div class="mb-5">
+              <label for="beschreibung" class="block text-sm font-medium text-primary mb-2">
+                Was wissen Sie über das Werk?
+              </label>
+              <textarea
+                id="beschreibung"
+                name="beschreibung"
+                rows="4"
+                placeholder="Herkunft, Alter, Zustand, Provenienz, weitere Details…"
+                class="w-full px-4 py-3 border border-border bg-white focus:border-primary outline-none transition-colors placeholder:text-muted/60 resize-y"
+              ></textarea>
+            </div>
+
+            <!-- 10. Wert -->
+            <div class="mb-5">
+              <label for="wert" class="block text-sm font-medium text-primary mb-2">
+                Geschätzter Wert
+              </label>
+              <select
+                id="wert"
+                name="wert"
+                class="w-full px-4 py-3 border border-border bg-white focus:border-primary outline-none transition-colors appearance-none bg-no-repeat bg-[right_1rem_center]"
+                style="background-image: url(&quot;data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%231a2332'%3E%3Cpath d='M5.5 7.5L10 12l4.5-4.5'/%3E%3C/svg%3E&quot;); background-size: 1.25rem"
+              >
+                <option value="">— Keine Angabe —</option>
+                {wertOptions.map((o) => <option value={o}>{o}</option>)}
+              </select>
+            </div>
+
+            <!-- 11. Foto-Upload -->
+            <div>
+              <label for="attachment" class="block text-sm font-medium text-primary mb-2">
+                Fotos hochladen
+              </label>
+              <input
+                type="file"
+                id="attachment"
+                name="attachment[]"
+                multiple
+                accept="image/*"
+                class="block w-full text-sm text-muted file:mr-4 file:py-3 file:px-5 file:border file:border-primary file:text-primary file:bg-cream file:cursor-pointer file:hover:bg-primary file:hover:text-cream file:transition-colors"
+              />
+              <p class="mt-2 text-xs text-muted">
+                Empfohlen: Gesamtansicht, Rückseite, Signatur, Details. Mehrere Dateien möglich.
+              </p>
+            </div>
+          </div>
+
+          <!-- 12. Einverständnis -->
+          <div class="border-t border-border pt-7">
+            <label class="flex items-start gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                name="einverstaendnis"
+                required
+                class="mt-1 w-5 h-5 border-border accent-primary cursor-pointer shrink-0"
+              />
+              <span class="text-sm text-ink leading-relaxed">
+                Ich habe die <a href="/datenschutz" class="text-primary underline hover:text-accent">Datenschutzerklärung</a>
+                gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung meiner Anfrage zu.
+                <span class="text-accent">*</span>
+              </span>
+            </label>
+          </div>
+
+          <!-- Submit -->
+          <div>
+            <button type="submit" class="btn-primary w-full justify-center text-base py-4">
+              Kostenlose Schätzung anfordern
+            </button>
+            <p class="mt-4 text-xs text-muted text-center">
+              Ihre Anfrage ist unverbindlich und kostenfrei. Alle Informationen werden streng vertraulich behandelt.
+            </p>
+            <p
+              id="formError"
+              class="mt-4 text-sm text-red-700 bg-red-50 border border-red-200 px-4 py-3 hidden"
+              role="alert"
+            ></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('estimateForm') as HTMLFormElement | null;
+  const telefonInput = document.getElementById('telefon') as HTMLInputElement | null;
+  const telefonStar = document.getElementById('telefonStar');
+  const telefonHint = document.getElementById('telefonHint');
+  const errorBox = document.getElementById('formError');
+
+  function getKontaktart(): string {
+    const checked = document.querySelector<HTMLInputElement>('input[name="kontaktart"]:checked');
+    return checked?.value || 'E-Mail';
+  }
+
+  function updateTelefonRequired() {
+    if (!telefonInput || !telefonStar || !telefonHint) return;
+    const k = getKontaktart();
+    const needsPhone = k === 'Rückruf' || k === 'Beides';
+    telefonInput.required = needsPhone;
+    telefonStar.style.display = needsPhone ? 'inline' : 'none';
+    telefonHint.textContent = needsPhone
+      ? 'Erforderlich für Rückruf'
+      : 'Optional – falls Sie zusätzlich telefonisch erreichbar sein möchten';
+  }
+
+  document.querySelectorAll<HTMLInputElement>('input[name="kontaktart"]').forEach((el) => {
+    el.addEventListener('change', updateTelefonRequired);
+  });
+  updateTelefonRequired();
+
+  function showError(msg: string) {
+    if (!errorBox) return;
+    errorBox.textContent = msg;
+    errorBox.classList.remove('hidden');
+    errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  form?.addEventListener('submit', (e) => {
+    if (!form.checkValidity()) {
+      e.preventDefault();
+      const k = getKontaktart();
+      if ((k === 'Rückruf' || k === 'Beides') && telefonInput && !telefonInput.value.trim()) {
+        showError('Bitte geben Sie eine Telefonnummer an – Sie haben „' + k + '" als Kontaktart gewählt.');
+      } else {
+        showError('Bitte füllen Sie alle Pflichtfelder aus.');
+      }
+      form.reportValidity();
+      return;
+    }
+
+    // Conversion-Tracking-Vorbereitung: Frühes Funnel-Signal für GTM/Google Ads
+    (window as any).dataLayer = (window as any).dataLayer || [];
+    (window as any).dataLayer.push({ event: 'lead_submitted' });
+  });
+
+  // URL-Parameter ?kontaktart=rueckruf vorbelegen (z.B. von "Rückruf vereinbaren"-Button)
+  const params = new URLSearchParams(window.location.search);
+  const ka = params.get('kontaktart');
+  if (ka === 'rueckruf') {
+    const radio = document.querySelector<HTMLInputElement>('input[name="kontaktart"][value="Rückruf"]');
+    if (radio) { radio.checked = true; updateTelefonRequired(); }
+  }
+</script>
