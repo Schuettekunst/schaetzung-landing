@@ -69,32 +69,8 @@ const wertOptions = [
           <!-- Honeypot gegen Bots (Web3Forms-Standard) -->
           <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
 
-          <!-- 1. Kontaktart -->
-          <fieldset>
-            <legend class="block text-sm font-medium text-primary mb-3">
-              Wie möchten Sie kontaktiert werden? <span class="text-accent">*</span>
-            </legend>
-            <div class="grid grid-cols-3 gap-2" role="radiogroup">
-              {['E-Mail', 'Rückruf', 'Beides'].map((opt) => (
-                <label class="relative cursor-pointer">
-                  <input
-                    type="radio"
-                    name="kontaktart"
-                    value={opt}
-                    required
-                    checked={opt === 'E-Mail'}
-                    class="peer sr-only"
-                  />
-                  <span class="block text-center text-sm py-3 px-3 border border-border bg-white peer-checked:bg-primary peer-checked:text-cream peer-checked:border-primary transition-colors hover:border-primary/50">
-                    {opt}
-                  </span>
-                </label>
-              ))}
-            </div>
-          </fieldset>
-
           <div class="grid sm:grid-cols-2 gap-5">
-            <!-- 2. Name -->
+            <!-- 1. Name -->
             <div>
               <label for="name" class="block text-sm font-medium text-primary mb-2">
                 Ihr Name <span class="text-accent">*</span>
@@ -109,7 +85,7 @@ const wertOptions = [
               />
             </div>
 
-            <!-- 3. E-Mail -->
+            <!-- 2. E-Mail -->
             <div>
               <label for="email" class="block text-sm font-medium text-primary mb-2">
                 E-Mail-Adresse <span class="text-accent">*</span>
@@ -125,7 +101,7 @@ const wertOptions = [
             </div>
           </div>
 
-          <!-- 4. Telefon (immer Pflicht) -->
+          <!-- 3. Telefon -->
           <div>
             <label for="telefon" class="block text-sm font-medium text-primary mb-2">
               Telefonnummer <span class="text-accent">*</span>
@@ -138,13 +114,16 @@ const wertOptions = [
               autocomplete="tel"
               class="w-full px-4 py-3 border border-border bg-white focus:border-primary outline-none transition-colors"
             />
-            <p class="mt-2 text-xs text-muted">Für persönliche Rückfragen zu Ihrem Werk – wir melden uns nur, wenn nötig.</p>
+            <p class="mt-2 text-xs text-muted">
+              Für eine erste persönliche Rückfrage – wir melden uns je nach Ihrer
+              Präferenz per E-Mail oder Telefon.
+            </p>
           </div>
 
           <div class="border-t border-border pt-7">
             <h3 class="font-serif text-primary text-xl mb-5">Angaben zum Werk</h3>
 
-            <!-- 5. Künstler -->
+            <!-- 4. Künstler -->
             <div class="mb-5">
               <label for="kuenstler" class="block text-sm font-medium text-primary mb-2">
                 Künstler / Signatur <span class="text-muted font-normal">(falls bekannt)</span>
@@ -158,7 +137,7 @@ const wertOptions = [
             </div>
 
             <div class="grid sm:grid-cols-2 gap-5 mb-5">
-              <!-- 6. Werkart -->
+              <!-- 5. Werkart -->
               <div>
                 <label for="werkart" class="block text-sm font-medium text-primary mb-2">
                   Art des Werks <span class="text-accent">*</span>
@@ -170,12 +149,12 @@ const wertOptions = [
                   class="w-full px-4 py-3 border border-border bg-white focus:border-primary outline-none transition-colors appearance-none bg-no-repeat bg-[right_1rem_center]"
                   style="background-image: url(&quot;data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%231a2332'%3E%3Cpath d='M5.5 7.5L10 12l4.5-4.5'/%3E%3C/svg%3E&quot;); background-size: 1.25rem"
                 >
-                  <option value="">— Bitte wählen —</option>
+                  <option value="" disabled selected>— Bitte wählen —</option>
                   {werkartOptions.map((o) => <option value={o}>{o}</option>)}
                 </select>
               </div>
 
-              <!-- 7. Technik -->
+              <!-- 6. Technik -->
               <div>
                 <label for="technik" class="block text-sm font-medium text-primary mb-2">
                   Technik / Material
@@ -190,7 +169,7 @@ const wertOptions = [
               </div>
             </div>
 
-            <!-- 8. Maße -->
+            <!-- 7. Maße -->
             <div class="mb-5">
               <label for="masse" class="block text-sm font-medium text-primary mb-2">
                 Maße <span class="text-muted font-normal">(H × B × T in cm)</span>
@@ -203,7 +182,7 @@ const wertOptions = [
               />
             </div>
 
-            <!-- 9. Beschreibung -->
+            <!-- 8. Beschreibung -->
             <div class="mb-5">
               <label for="beschreibung" class="block text-sm font-medium text-primary mb-2">
                 Was wissen Sie über das Werk?
@@ -217,7 +196,7 @@ const wertOptions = [
               ></textarea>
             </div>
 
-            <!-- 10. Wert -->
+            <!-- 9. Wert -->
             <div class="mb-5">
               <label for="wert" class="block text-sm font-medium text-primary mb-2">
                 Geschätzter Wert
@@ -228,12 +207,12 @@ const wertOptions = [
                 class="w-full px-4 py-3 border border-border bg-white focus:border-primary outline-none transition-colors appearance-none bg-no-repeat bg-[right_1rem_center]"
                 style="background-image: url(&quot;data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%231a2332'%3E%3Cpath d='M5.5 7.5L10 12l4.5-4.5'/%3E%3C/svg%3E&quot;); background-size: 1.25rem"
               >
-                <option value="">— Keine Angabe —</option>
+                <option value="" disabled selected>— Bitte wählen —</option>
                 {wertOptions.map((o) => <option value={o}>{o}</option>)}
               </select>
             </div>
 
-            <!-- 11. Foto-Upload -->
+            <!-- 10. Foto-Upload -->
             <div>
               <label for="attachment" class="block text-sm font-medium text-primary mb-2">
                 Fotos hochladen
@@ -252,7 +231,7 @@ const wertOptions = [
             </div>
           </div>
 
-          <!-- 12. Einverständnis -->
+          <!-- 11. Einverständnis -->
           <div class="border-t border-border pt-7">
             <label class="flex items-start gap-3 cursor-pointer">
               <input
@@ -312,12 +291,4 @@ const wertOptions = [
     (window as any).dataLayer = (window as any).dataLayer || [];
     (window as any).dataLayer.push({ event: 'lead_submitted' });
   });
-
-  // URL-Parameter ?kontaktart=rueckruf vorbelegen (z.B. von "Rückruf vereinbaren"-Button)
-  const params = new URLSearchParams(window.location.search);
-  const ka = params.get('kontaktart');
-  if (ka === 'rueckruf') {
-    const radio = document.querySelector<HTMLInputElement>('input[name="kontaktart"][value="Rückruf"]');
-    if (radio) radio.checked = true;
-  }
 </script>

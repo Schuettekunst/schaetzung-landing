@@ -26,23 +26,22 @@
           <span class="eyebrow">Kostenlose Expertise · 30 Jahre Erfahrung</span>
 
           <h1 class="font-serif text-primary text-4xl sm:text-5xl lg:text-display-lg leading-[1.05] tracking-tight">
-            Ihr Kunstwerk –<br />
-            <span class="italic text-accent-700">kostenlos geschätzt</span>
-            <br />
-            von Experten mit 30 Jahren Markterfahrung
+            Ihr Kunstwerk verdient ein
+            <span class="italic text-accent-700">Spitzenergebnis</span>
           </h1>
 
           <p class="mt-8 text-lg text-muted leading-relaxed max-w-xl">
             Gemälde, Grafiken und Skulpturen vom 18. Jahrhundert bis zur Gegenwart.
-            Kostenlose Bewertung durch Kunsthistoriker. Bundesweite, versicherte Abholung.
-            Weltweiter Verkauf zu Bestkonditionen.
+            Kostenlose Bewertung durch Kunsthistoriker, bundesweite Abholung,
+            professionelle Werkfotografie und Aufnahme in unseren aufwendigen
+            Print-Katalog – alles inklusive. Antwort innerhalb von 24 Stunden.
           </p>
 
           <div class="mt-10 flex flex-col sm:flex-row gap-4">
             <a href="#formular" class="btn-primary">
               Jetzt kostenlos schätzen lassen
             </a>
-            <a href="#formular?kontaktart=rueckruf" class="btn-secondary" data-prefill="rueckruf">
+            <a href="#formular" class="btn-secondary">
               Rückruf vereinbaren
             </a>
           </div>
@@ -99,16 +98,3 @@
   /* Toggle Placeholder wenn Bild fehlt */
   .is-placeholder .is-placeholder-content { display: flex !important; }
 </style>
-
-<script>
-  // Sekundärer CTA: Pre-Select "Rückruf" im Formular
-  document.querySelectorAll('[data-prefill="rueckruf"]').forEach((el) => {
-    el.addEventListener('click', (e) => {
-      e.preventDefault();
-      const radio = document.querySelector<HTMLInputElement>('input[name="kontaktart"][value="Rückruf"]');
-      if (radio) radio.checked = true;
-      const target = document.getElementById('formular');
-      if (target) target.scrollIntoView({ behavior: 'smooth' });
-    });
-  });
-</script>

@@ -1,0 +1,92 @@
+---
+// Sektion: Was Sie als Einlieferer erhalten – Komplettservice-Karten
+// Position: zwischen Results und Process. Hintergrund weiß für visuelle Abgrenzung.
+const services = [
+  {
+    icon: 'eye',
+    title: 'Bewertung durch Kunsthistoriker',
+    text: 'Ihr Werk wird von ausgewiesenen Experten geprüft und marktgerecht eingeschätzt – mit über 30 Jahren Erfahrung im internationalen Kunstmarkt.',
+  },
+  {
+    icon: 'truck',
+    title: 'Bundesweite Abholung',
+    text: 'Wir holen Ihr Werk kostenlos und vollversichert in ganz Deutschland ab – ohne Mindestwert und ohne versteckte Kosten.',
+  },
+  {
+    icon: 'camera',
+    title: 'Professionelle Werkfotografie',
+    text: 'Unser hauseigener Fotograf erstellt hochwertige Aufnahmen Ihres Werks – essenziell für Katalog und internationale Vermarktung.',
+  },
+  {
+    icon: 'book',
+    title: 'Aufnahme in den Print-Katalog',
+    text: 'Ihr Werk erscheint in unserem aufwendig gestalteten Auktionskatalog, der an Sammler, Galerien und Häuser im In- und Ausland versendet wird.',
+  },
+  {
+    icon: 'globe',
+    title: 'Internationale Vermarktung',
+    text: 'Wir platzieren Ihr Werk auf allen relevanten Auktionsplattformen und in unserer internationalen Sammler-Datenbank.',
+  },
+  {
+    icon: 'handshake',
+    title: 'Persönlicher Ansprechpartner',
+    text: 'Vom ersten Foto bis zum Zuschlag betreut Sie ein Experte persönlich – telefonisch, per E-Mail oder vor Ort.',
+  },
+];
+---
+
+<section id="leistungen" class="bg-white border-y border-border">
+  <div class="container-content py-20 lg:py-28">
+    <div class="max-w-2xl">
+      <span class="eyebrow">Unsere Leistungen</span>
+      <h2 class="section-title">Was Sie als Einlieferer erhalten – kostenlos</h2>
+      <p class="section-sub">
+        Unser Komplettservice für Ihren erfolgreichen Verkauf. Sie zahlen nichts
+        vorab – wir investieren in den Verkaufserfolg Ihres Werks.
+      </p>
+    </div>
+
+    <ul class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+      {services.map((s) => (
+        <li class="bg-white p-8 lg:p-10 flex flex-col">
+          <span class="text-accent mb-5" aria-hidden="true">
+            {s.icon === 'eye' && (
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.25">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            )}
+            {s.icon === 'truck' && (
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.25">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-4.5"/>
+              </svg>
+            )}
+            {s.icon === 'camera' && (
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.25">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"/>
+              </svg>
+            )}
+            {s.icon === 'book' && (
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.25">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
+              </svg>
+            )}
+            {s.icon === 'globe' && (
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.25">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"/>
+              </svg>
+            )}
+            {s.icon === 'handshake' && (
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.25">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/>
+              </svg>
+            )}
+          </span>
+          <h3 class="font-serif text-primary text-xl leading-snug font-medium">{s.title}</h3>
+          <p class="mt-3 text-muted text-[15px] leading-relaxed">{s.text}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
