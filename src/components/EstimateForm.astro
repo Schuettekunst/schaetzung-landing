@@ -125,20 +125,20 @@ const wertOptions = [
             </div>
           </div>
 
-          <!-- 4. Telefon -->
+          <!-- 4. Telefon (immer Pflicht) -->
           <div>
             <label for="telefon" class="block text-sm font-medium text-primary mb-2">
-              Telefonnummer
-              <span class="text-accent" id="telefonStar">*</span>
+              Telefonnummer <span class="text-accent">*</span>
             </label>
             <input
               type="tel"
               id="telefon"
               name="telefon"
+              required
               autocomplete="tel"
               class="w-full px-4 py-3 border border-border bg-white focus:border-primary outline-none transition-colors"
             />
-            <p class="mt-2 text-xs text-muted" id="telefonHint">Erforderlich für Rückruf</p>
+            <p class="mt-2 text-xs text-muted">Für persönliche Rückfragen zu Ihrem Werk – wir melden uns nur, wenn nötig.</p>
           </div>
 
           <div class="border-t border-border pt-7">
@@ -291,31 +291,7 @@ const wertOptions = [
 
 <script>
   const form = document.getElementById('estimateForm') as HTMLFormElement | null;
-  const telefonInput = document.getElementById('telefon') as HTMLInputElement | null;
-  const telefonStar = document.getElementById('telefonStar');
-  const telefonHint = document.getElementById('telefonHint');
   const errorBox = document.getElementById('formError');
-
-  function getKontaktart(): string {
-    const checked = document.querySelector<HTMLInputElement>('input[name="kontaktart"]:checked');
-    return checked?.value || 'E-Mail';
-  }
-
-  function updateTelefonRequired() {
-    if (!telefonInput || !telefonStar || !telefonHint) return;
-    const k = getKontaktart();
-    const needsPhone = k === 'Rückruf' || k === 'Beides';
-    telefonInput.required = needsPhone;
-    telefonStar.style.display = needsPhone ? 'inline' : 'none';
-    telefonHint.textContent = needsPhone
-      ? 'Erforderlich für Rückruf'
-      : 'Optional – falls Sie zusätzlich telefonisch erreichbar sein möchten';
-  }
-
-  document.querySelectorAll<HTMLInputElement>('input[name="kontaktart"]').forEach((el) => {
-    el.addEventListener('change', updateTelefonRequired);
-  });
-  updateTelefonRequired();
 
   function showError(msg: string) {
     if (!errorBox) return;
@@ -327,12 +303,7 @@ const wertOptions = [
   form?.addEventListener('submit', (e) => {
     if (!form.checkValidity()) {
       e.preventDefault();
-      const k = getKontaktart();
-      if ((k === 'Rückruf' || k === 'Beides') && telefonInput && !telefonInput.value.trim()) {
-        showError('Bitte geben Sie eine Telefonnummer an – Sie haben „' + k + '" als Kontaktart gewählt.');
-      } else {
-        showError('Bitte füllen Sie alle Pflichtfelder aus.');
-      }
+      showError('Bitte füllen Sie alle Pflichtfelder aus.');
       form.reportValidity();
       return;
     }
@@ -347,6 +318,6 @@ const wertOptions = [
   const ka = params.get('kontaktart');
   if (ka === 'rueckruf') {
     const radio = document.querySelector<HTMLInputElement>('input[name="kontaktart"][value="Rückruf"]');
-    if (radio) { radio.checked = true; updateTelefonRequired(); }
+    if (radio) radio.checked = true;
   }
 </script>
