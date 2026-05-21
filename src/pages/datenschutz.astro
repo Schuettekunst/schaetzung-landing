@@ -5,185 +5,255 @@ import Footer from '../components/Footer.astro';
 
 <Base
   title="Datenschutzerklärung | Schütte Kunstauktionen"
-  description="Datenschutzerklärung der Schätzungs-Landingpage von Schütte Kunstauktionen."
+  description="Datenschutzerklärung der Schätzungs-Landingpage von Schütte Kunstauktionen. Stand Mai 2026."
 >
   <main class="flex-1 bg-cream">
     <div class="container-content py-20 lg:py-28 max-w-3xl">
       <a href="/" class="text-sm text-muted hover:text-primary transition-colors">← Zur Startseite</a>
-      <h1 class="mt-6 font-serif text-primary text-4xl sm:text-5xl">Datenschutzerklärung</h1>
 
-      {/*
-        HINWEIS: Diese Datenschutzerklärung ist ein Entwurf, basierend auf den
-        Strukturanforderungen für eine Landing Page mit Web3Forms, Google Tag Manager,
-        Google Analytics und Google Ads. Vor Go-Live MUSS sie von einem auf DSGVO/TTDSG
-        spezialisierten Anwalt geprüft und finalisiert werden. Die bestehende
-        DS-Erklärung auf schuettekunst.de war nicht ausreichend für die hier eingesetzten
-        Tools.
-      */}
-      <div class="mt-6 mb-10 p-5 bg-accent/10 border border-accent/30 text-sm">
-        <strong>Hinweis (vor Go-Live entfernen):</strong> Dieser Text ist ein Entwurf
-        und muss vor dem Live-Schalten anwaltlich geprüft werden – insbesondere wegen
-        Web3Forms, Google Tag Manager, Google Analytics und Google Ads.
-      </div>
+      <h1 class="mt-6 font-serif text-primary text-4xl sm:text-5xl leading-tight">
+        Datenschutzerklärung
+      </h1>
+      <p class="mt-4 text-sm text-muted uppercase tracking-wider2">Stand: Mai 2026</p>
 
-      <div class="space-y-8 text-ink/85 leading-relaxed">
-        <section>
-          <h2 class="font-serif text-primary text-2xl mb-3">1. Verantwortlicher</h2>
-          <p>
+      <article class="mt-12 space-y-14 text-[17px] text-ink/85 leading-relaxed">
+
+        <!-- 1 -->
+        <section class="space-y-4">
+          <h2 class="font-serif text-primary text-2xl sm:text-3xl">1. Verantwortlicher</h2>
+          <p>Verantwortlich für die Datenverarbeitung auf dieser Website ist:</p>
+          <address class="not-italic">
             Schütte Kunstauktionen GmbH<br />
+            Vertreten durch: Paul Schütte<br />
             Gohliser Straße 19<br />
             04155 Leipzig<br />
-            Deutschland
-          </p>
-          <p class="mt-3">
-            Telefon: +49 (0) 341 – 2537 6245<br />
+            Telefon: <a href="tel:+4934125376245" class="text-primary underline hover:text-accent">+49 (0) 341 – 2537 6245</a><br />
             E-Mail: <a href="mailto:info@schuettekunst.de" class="text-primary underline hover:text-accent">info@schuettekunst.de</a>
-          </p>
+          </address>
         </section>
 
-        <section>
-          <h2 class="font-serif text-primary text-2xl mb-3">2. Allgemeines zur Datenverarbeitung</h2>
+        <!-- 2 -->
+        <section class="space-y-4">
+          <h2 class="font-serif text-primary text-2xl sm:text-3xl">2. Allgemeines zur Datenverarbeitung</h2>
           <p>
             Wir verarbeiten personenbezogene Daten unserer Nutzer grundsätzlich nur, soweit
             dies zur Bereitstellung einer funktionsfähigen Website sowie unserer Inhalte und
             Leistungen erforderlich ist. Die Verarbeitung erfolgt regelmäßig nur nach
-            Einwilligung der Nutzer oder wenn die Verarbeitung durch gesetzliche Vorschriften
-            gestattet ist.
+            Einwilligung des Nutzers (Art. 6 Abs. 1 lit. a DSGVO) oder zur Erfüllung eines
+            Vertrags bzw. vorvertraglicher Maßnahmen (Art. 6 Abs. 1 lit. b DSGVO) oder zur
+            Wahrung berechtigter Interessen (Art. 6 Abs. 1 lit. f DSGVO).
           </p>
         </section>
 
-        <section>
-          <h2 class="font-serif text-primary text-2xl mb-3">3. Bereitstellung der Website und Server-Logfiles</h2>
+        <!-- 3 -->
+        <section class="space-y-4">
+          <h2 class="font-serif text-primary text-2xl sm:text-3xl">3. Hosting</h2>
+          <p>Diese Website wird gehostet bei:</p>
+          <address class="not-italic">
+            Vercel Inc.<br />
+            340 S Lemon Ave #4133<br />
+            Walnut, CA 91789<br />
+            USA
+          </address>
           <p>
-            Bei jedem Aufruf unserer Website erfasst unser Hosting-Provider automatisch Daten
-            und Informationen vom Computersystem des aufrufenden Rechners (Server-Logfiles).
-            Folgende Daten werden hierbei erhoben: IP-Adresse, Datum und Uhrzeit des Zugriffs,
-            Browsertyp/-version, Betriebssystem, Referrer-URL.
-            Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an Betrieb und
-            Sicherheit). Speicherdauer: maximal 7 Tage.
+            Vercel verarbeitet im Auftrag personenbezogene Daten, insbesondere IP-Adressen,
+            Datum und Uhrzeit des Zugriffs, übermittelte Datenmengen und
+            User-Agent-Informationen. Die Datenübermittlung in die USA erfolgt auf Grundlage
+            der EU-Standardvertragsklauseln. Mit Vercel besteht ein
+            Auftragsverarbeitungsvertrag.
           </p>
-        </section>
-
-        <section>
-          <h2 class="font-serif text-primary text-2xl mb-3">4. Schätzungsanfrage über das Kontaktformular</h2>
           <p>
-            Wenn Sie uns über das Schätzungsformular eine Anfrage übermitteln, werden Ihre
-            Angaben (Name, E-Mail, ggf. Telefonnummer, Angaben zum Werk wie Künstler, Werkart,
-            Technik, Maße, Beschreibung, Wertschätzung sowie hochgeladene Fotos) zwecks
-            Bearbeitung Ihrer Anfrage und für den Fall von Anschlussfragen bei uns gespeichert.
-          </p>
-          <p class="mt-3">
-            Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Anbahnung eines Vertragsverhältnisses)
-            sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an effizienter
-            Anfragebearbeitung). Die Daten werden gelöscht, sobald sie für die Erreichung des
-            Zwecks ihrer Erhebung nicht mehr erforderlich sind und keine gesetzlichen
-            Aufbewahrungspflichten entgegenstehen.
+            <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes
+            Interesse an einer technisch fehlerfreien Darstellung und Bereitstellung unserer
+            Website).
           </p>
         </section>
 
-        <section>
-          <h2 class="font-serif text-primary text-2xl mb-3">5. Auftragsverarbeiter: Web3Forms</h2>
+        <!-- 4 -->
+        <section class="space-y-4">
+          <h2 class="font-serif text-primary text-2xl sm:text-3xl">4. Server-Logfiles</h2>
           <p>
-            Für die technische Übermittlung des Schätzungsformulars setzen wir den Dienst
-            <strong>Web3Forms</strong> ein (Anbieter: SimpleStack, FZ-LLC, Dubai/UAE).
-            Die im Formular eingegebenen Daten werden über die Server von Web3Forms an unsere
-            E-Mail-Adresse weitergeleitet. Mit dem Anbieter besteht ein
-            Auftragsverarbeitungsvertrag (AVV) gemäß Art. 28 DSGVO.
+            Beim Aufruf dieser Website werden automatisch Informationen in sogenannten
+            Server-Logfiles gespeichert:
           </p>
-          <p class="mt-3">
-            Datenübertragung in Drittländer: Da Web3Forms außerhalb der EU sitzt, kann es zu
-            einer Übermittlung in ein Drittland kommen. Geeignete Garantien werden über
-            Standardvertragsklauseln gemäß Art. 46 Abs. 2 DSGVO sichergestellt.
-            Rechtsgrundlage: Art. 6 Abs. 1 lit. b/f DSGVO. Details:
-            <a href="https://web3forms.com/privacy" class="text-primary underline hover:text-accent" rel="noopener">web3forms.com/privacy</a>.
-          </p>
-        </section>
-
-        <section>
-          <h2 class="font-serif text-primary text-2xl mb-3">6. Cookies und Consent Management</h2>
+          <ul class="list-disc pl-6 space-y-1.5">
+            <li>IP-Adresse des anfragenden Rechners (gekürzt bzw. anonymisiert)</li>
+            <li>Datum und Uhrzeit des Zugriffs</li>
+            <li>Name und URL der abgerufenen Datei</li>
+            <li>Übertragene Datenmenge</li>
+            <li>Meldung, ob der Abruf erfolgreich war</li>
+            <li>Erkennungsdaten des verwendeten Browser- und Betriebssystems</li>
+            <li>Referrer-URL</li>
+          </ul>
           <p>
-            Beim Aufruf unserer Website setzen wir zunächst nur technisch notwendige Cookies
-            ein. Erst nach Ihrer aktiven Einwilligung im Cookie-Banner laden wir den Google
-            Tag Manager und die darüber eingebundenen Tracking-Dienste. Wir nutzen den
-            <strong>Google Consent Mode V2</strong>.
+            Diese Daten werden nicht mit anderen Datenquellen zusammengeführt. Die Speicherung
+            erfolgt zur Sicherstellung des Betriebs und zur Abwehr von Angriffen.
           </p>
-          <p class="mt-3">
-            Rechtsgrundlage: § 25 Abs. 1 TTDSG (Einwilligung) bzw. § 25 Abs. 2 TTDSG
-            (essenziell). Ihre Einwilligung können Sie jederzeit widerrufen, indem Sie die
-            Cookies in Ihrem Browser löschen.
-          </p>
+          <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO.</p>
         </section>
 
-        <section>
-          <h2 class="font-serif text-primary text-2xl mb-3">7. Google Tag Manager</h2>
+        <!-- 5 -->
+        <section class="space-y-4">
+          <h2 class="font-serif text-primary text-2xl sm:text-3xl">5. Kontaktformular / Schätzungsanfrage</h2>
           <p>
-            Wir setzen den Google Tag Manager (Anbieter: Google Ireland Ltd., Gordon House,
-            Barrow Street, Dublin 4, Irland) zur zentralen Verwaltung von Website-Tags ein.
-            Der Tag Manager selbst erhebt keine personenbezogenen Daten, lädt aber andere
-            Tags, die ihrerseits ggf. Daten erfassen. Der Tag Manager wird erst nach
-            Einwilligung im Consent-Banner geladen.
+            Wenn Sie uns über das Schätzungsformular eine Anfrage zukommen lassen, werden
+            Ihre Angaben aus dem Formular inklusive der von Ihnen dort angegebenen
+            Kontaktdaten und hochgeladenen Bilddateien zur Bearbeitung der Anfrage und für
+            den Fall von Anschlussfragen bei uns gespeichert.
           </p>
-        </section>
-
-        <section>
-          <h2 class="font-serif text-primary text-2xl mb-3">8. Google Analytics 4 und Google Ads</h2>
+          <p><strong>Verarbeitete Daten:</strong></p>
+          <ul class="list-disc pl-6 space-y-1.5">
+            <li>Name</li>
+            <li>E-Mail-Adresse</li>
+            <li>Telefonnummer</li>
+            <li>Angaben zum Werk (Künstler, Werkart, Technik, Maße, Beschreibung, geschätzter Wert)</li>
+            <li>Hochgeladene Fotos des Werks</li>
+          </ul>
           <p>
-            Nach Ihrer Einwilligung verwenden wir Google Analytics 4 und Google Ads
-            Conversion-Tracking (Anbieter: Google Ireland Ltd.) zur Reichweitenmessung sowie
-            zur Erfolgsmessung unserer Online-Werbekampagnen. Verarbeitet werden u.a.
-            IP-Adresse (gekürzt), Geräte- und Browserinformationen, Standort, besuchte Seiten
-            und Conversion-Events (z.B. abgesendete Anfragen).
+            <strong>Zweck der Verarbeitung:</strong> Bearbeitung Ihrer Schätzungsanfrage und
+            Kontaktaufnahme.
           </p>
-          <p class="mt-3">
-            Eine Übertragung in die USA findet statt; geeignete Garantien werden über
-            Standardvertragsklauseln und das EU-US Data Privacy Framework gewährleistet.
-            Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung).
-          </p>
-        </section>
-
-        <section>
-          <h2 class="font-serif text-primary text-2xl mb-3">9. Google Fonts</h2>
           <p>
-            Wir binden auf dieser Seite Google Fonts (Cormorant Garamond, Inter) ein. Dabei
-            stellt Ihr Browser eine Verbindung zu Servern von Google her, wobei die
-            IP-Adresse übertragen wird. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO
-            (berechtigtes Interesse an einheitlicher Darstellung).
+            <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche
+            Maßnahmen) sowie Art. 6 Abs. 1 lit. a DSGVO (Einwilligung).
           </p>
-          <p class="mt-3 text-sm text-muted">
-            Hinweis: Die rechtssichere Variante ist die Selbst-Hosting der Schriften.
-            Bitte mit Anwalt klären, ob das umgesetzt werden soll.
+          <p>
+            <strong>Speicherdauer:</strong> Ihre Daten werden gelöscht, sobald sie für den
+            Zweck ihrer Erhebung nicht mehr erforderlich sind. Geschäftliche Korrespondenz
+            unterliegt den handels- und steuerrechtlichen Aufbewahrungsfristen (6 bzw. 10
+            Jahre).
           </p>
         </section>
 
-        <section>
-          <h2 class="font-serif text-primary text-2xl mb-3">10. Rechte der betroffenen Person</h2>
-          <p>Sie haben gegenüber uns folgende Rechte hinsichtlich der Sie betreffenden personenbezogenen Daten:</p>
-          <ul class="mt-3 ml-5 list-disc space-y-1">
-            <li>Recht auf Auskunft (Art. 15 DSGVO)</li>
+        <!-- 6 -->
+        <section class="space-y-4">
+          <h2 class="font-serif text-primary text-2xl sm:text-3xl">6. Formularverarbeitung durch Web3Forms</h2>
+          <p>Zur technischen Abwicklung des Schätzungsformulars setzen wir den Dienst Web3Forms ein:</p>
+          <address class="not-italic">
+            Web3Forms<br />
+            betrieben von: Statichunt<br />
+            <a href="https://www.web3forms.com" rel="noopener" class="text-primary underline hover:text-accent">www.web3forms.com</a>
+          </address>
+          <p>
+            Wenn Sie das Formular absenden, werden die Formulardaten und Anhänge an
+            Web3Forms übertragen und von dort als E-Mail an uns weitergeleitet. Web3Forms
+            speichert die Daten zur Sicherstellung des Dienstes auf Servern, die sich
+            teilweise außerhalb der EU befinden.
+          </p>
+          <p>
+            Die Datenübermittlung in Drittländer erfolgt auf Grundlage der
+            EU-Standardvertragsklauseln.
+          </p>
+          <p>
+            <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche
+            Maßnahmen) sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer
+            funktionsfähigen Formularverarbeitung).
+          </p>
+        </section>
+
+        <!-- 7 -->
+        <section class="space-y-4">
+          <h2 class="font-serif text-primary text-2xl sm:text-3xl">7. Cookies</h2>
+          <p>
+            Diese Website verwendet Cookies, soweit dies technisch erforderlich ist. Darüber
+            hinaus setzen wir Cookies erst nach Ihrer ausdrücklichen Einwilligung über
+            unser Cookie-Banner ein.
+          </p>
+          <p>
+            Sie können Ihre Einwilligung jederzeit widerrufen, indem Sie die entsprechenden
+            Einstellungen in Ihrem Browser vornehmen oder das Cookie-Banner erneut aufrufen.
+          </p>
+        </section>
+
+        <!-- 8 -->
+        <section class="space-y-6">
+          <h2 class="font-serif text-primary text-2xl sm:text-3xl">8. Webanalyse und Marketing-Tools</h2>
+          <p>Sofern Sie eingewilligt haben, setzen wir folgende Dienste ein:</p>
+
+          <div class="space-y-3">
+            <h3 class="font-serif text-primary text-xl">a) Google Analytics 4</h3>
+            <p><strong>Anbieter:</strong> Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland</p>
+            <p><strong>Zweck:</strong> Analyse des Nutzungsverhaltens zur Optimierung der Website.</p>
+            <p><strong>Verarbeitete Daten:</strong> IP-Adresse (gekürzt), Geräte- und Browserinformationen, besuchte Seiten, Verweildauer, Referrer.</p>
+            <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung).</p>
+            <p><strong>Speicherdauer:</strong> 14 Monate.</p>
+            <p>Datenübermittlung in die USA auf Grundlage der EU-Standardvertragsklauseln.</p>
+          </div>
+
+          <div class="space-y-3">
+            <h3 class="font-serif text-primary text-xl">b) Google Ads / Google Tag Manager</h3>
+            <p><strong>Anbieter:</strong> Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland</p>
+            <p><strong>Zweck:</strong> Conversion-Messung und Optimierung von Werbeanzeigen.</p>
+            <p><strong>Verarbeitete Daten:</strong> IP-Adresse, Cookie-Informationen, Klick- und Conversion-Daten.</p>
+            <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung).</p>
+          </div>
+
+          <div class="space-y-3">
+            <h3 class="font-serif text-primary text-xl">c) Microsoft Clarity</h3>
+            <p><strong>Anbieter:</strong> Microsoft Ireland Operations Limited, One Microsoft Place, South County Business Park, Leopardstown, Dublin 18, Irland</p>
+            <p><strong>Zweck:</strong> Analyse des Nutzerverhaltens (Heatmaps, Session-Aufzeichnungen) zur Optimierung der Website.</p>
+            <p><strong>Verarbeitete Daten:</strong> Klick- und Scrollverhalten, Geräte- und Browserinformationen, IP-Adresse (anonymisiert).</p>
+            <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung).</p>
+          </div>
+
+          <p>Sie können Ihre Einwilligung jederzeit über unser Cookie-Banner widerrufen.</p>
+        </section>
+
+        <!-- 9 -->
+        <section class="space-y-4">
+          <h2 class="font-serif text-primary text-2xl sm:text-3xl">9. Ihre Rechte als betroffene Person</h2>
+          <p>
+            Sie haben folgende Rechte gegenüber uns hinsichtlich der Sie betreffenden
+            personenbezogenen Daten:
+          </p>
+          <ul class="list-disc pl-6 space-y-1.5">
+            <li>Auskunftsrecht (Art. 15 DSGVO)</li>
             <li>Recht auf Berichtigung (Art. 16 DSGVO)</li>
             <li>Recht auf Löschung (Art. 17 DSGVO)</li>
             <li>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
             <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</li>
-            <li>Recht auf Widerspruch (Art. 21 DSGVO)</li>
+            <li>Widerspruchsrecht (Art. 21 DSGVO)</li>
             <li>Recht auf Widerruf einer erteilten Einwilligung (Art. 7 Abs. 3 DSGVO)</li>
-            <li>Recht auf Beschwerde bei einer Aufsichtsbehörde (Art. 77 DSGVO)</li>
+            <li>Beschwerderecht bei einer Aufsichtsbehörde (Art. 77 DSGVO)</li>
           </ul>
-          <p class="mt-4">
-            Zur Geltendmachung Ihrer Rechte wenden Sie sich bitte an
-            <a href="mailto:info@schuettekunst.de" class="text-primary underline hover:text-accent">
-              info@schuettekunst.de</a>.
+          <p class="pt-2"><strong>Zuständige Aufsichtsbehörde für Sachsen:</strong></p>
+          <address class="not-italic">
+            Der Sächsische Datenschutzbeauftragte<br />
+            Devrientstraße 1<br />
+            01067 Dresden
+          </address>
+        </section>
+
+        <!-- 10 -->
+        <section class="space-y-4">
+          <h2 class="font-serif text-primary text-2xl sm:text-3xl">10. Datensicherheit</h2>
+          <p>
+            Wir verwenden innerhalb des Website-Besuchs das verbreitete SSL/TLS-Verfahren
+            zur Verschlüsselung der Datenübertragung. Sie erkennen eine verschlüsselte
+            Verbindung an der Zeichenfolge <code class="px-1.5 py-0.5 bg-primary/5 text-primary text-[0.9em]">https://</code>
+            in Ihrer Browserzeile sowie am Schloss-Symbol.
           </p>
         </section>
 
-        <section>
-          <h2 class="font-serif text-primary text-2xl mb-3">11. Aktualität und Änderung dieser Datenschutzerklärung</h2>
+        <!-- 11 -->
+        <section class="space-y-4">
+          <h2 class="font-serif text-primary text-2xl sm:text-3xl">11. Aktualität und Änderung dieser Datenschutzerklärung</h2>
           <p>
-            Diese Datenschutzerklärung ist aktuell gültig. Durch geänderte gesetzliche oder
-            technische Anforderungen kann es notwendig werden, sie anzupassen. Die jeweils
-            aktuelle Version kann jederzeit auf dieser Seite eingesehen werden.
+            Diese Datenschutzerklärung ist aktuell gültig und hat den Stand Mai 2026. Durch
+            die Weiterentwicklung unserer Website oder gesetzliche Änderungen kann es
+            notwendig werden, diese Datenschutzerklärung anzupassen. Die jeweils aktuelle
+            Version finden Sie jederzeit auf dieser Seite.
           </p>
         </section>
-      </div>
+
+        <div class="pt-6 border-t border-border">
+          <p class="text-muted">
+            Kontakt für Datenschutzanfragen:
+            <a href="mailto:info@schuettekunst.de" class="text-primary underline hover:text-accent">info@schuettekunst.de</a>
+          </p>
+        </div>
+
+      </article>
     </div>
   </main>
   <Footer />
