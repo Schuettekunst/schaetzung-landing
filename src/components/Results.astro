@@ -1,5 +1,8 @@
 ---
 // Sektion 3: Erzielte Ergebnisse – social proof durch konkrete Auktionszuschläge
+// Mobile: horizontales Scroll-Karussell mit scroll-snap (kein JS-Lib)
+// Tablet+: 2-Spalten-Grid
+// Desktop: 3-Spalten-Grid
 const results = [
   { artist: 'Wolfgang Mattheuer (Gemälde)', price: '100.000 €', file: 'mattheuer-gemaelde.jpg' },
   { artist: 'Neo Rauch',                    price: '93.947 €',  file: 'neo-rauch.jpg' },
@@ -27,9 +30,12 @@ const results = [
 
     <div class="hairline mt-12 mb-12"></div>
 
-    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14">
+    <ul
+      id="resultsCarousel"
+      class="results-track flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-x-8 md:gap-y-14 -mx-5 sm:-mx-6 md:mx-0 px-5 sm:px-6 md:px-0 pb-4 md:pb-0 scroll-smooth"
+    >
       {results.map((r) => (
-        <li class="group">
+        <li class="results-card snap-start shrink-0 w-[80vw] md:w-auto group">
           <figure>
             <div class="relative aspect-[4/5] bg-white border border-border overflow-hidden">
               <img
@@ -64,8 +70,97 @@ const results = [
       ))}
     </ul>
 
+    <!-- Karussell-UI: nur Mobile -->
+    <div class="md:hidden mt-6 flex flex-col items-center gap-3">
+      <div
+        id="resultsDots"
+        class="flex items-center gap-2"
+        role="tablist"
+        aria-label="Werk auswählen"
+      >
+        {results.map((r, i) => (
+          <button
+            type="button"
+            class="results-dot h-1.5 w-1.5 rounded-full bg-primary/25 transition-all duration-300 cursor-pointer"
+            data-index={i}
+            aria-label={`Zu Werk ${i + 1}: ${r.artist}`}
+          />
+        ))}
+      </div>
+      <p class="text-xs italic text-muted select-none" aria-hidden="true">
+        ← swipen für mehr →
+      </p>
+    </div>
+
     <p class="mt-16 text-center text-xs text-muted italic">
       Erfolgreich versteigert über Schütte Kunstauktionen. Alle Ergebnisse inkl. Aufgeld.
     </p>
   </div>
 </section>
+
+<style>
+  /* Native Scrollbar auf Mobile-Karussell ausblenden */
+  .results-track {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .results-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Aktiver Indicator-Punkt: breiter, in Goldakzent */
+  .results-dot[data-active] {
+    width: 1.5rem;
+    background-color: #b8935e;
+  }
+
+  /* Reduce motion respektieren */
+  @media (prefers-reduced-motion: reduce) {
+    .results-track {
+      scroll-behavior: auto;
+    }
+    .results-dot {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const track = document.getElementById('resultsCarousel');
+  const dots = Array.from(document.querySelectorAll<HTMLButtonElement>('.results-dot'));
+  const cards = track ? Array.from(track.querySelectorAll<HTMLElement>('.results-card')) : [];
+
+  function setActive(idx: number) {
+    dots.forEach((d, i) => {
+      if (i === idx) d.setAttribute('data-active', '');
+      else d.removeAttribute('data-active');
+    });
+  }
+
+  if (track && dots.length && cards.length) {
+    // IntersectionObserver: erkennt, welche Karte im Karussell dominant sichtbar ist
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Pro Tick die Karte mit höchstem intersectionRatio nehmen
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) {
+          const idx = cards.indexOf(visible.target as HTMLElement);
+          if (idx >= 0) setActive(idx);
+        }
+      },
+      { root: track, threshold: [0.5, 0.75, 1] }
+    );
+
+    cards.forEach((card) => observer.observe(card));
+    setActive(0);
+
+    // Click auf Indicator scrollt zur Karte
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        cards[i]?.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+      });
+    });
+  }
+</script>
