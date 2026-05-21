@@ -42,9 +42,10 @@ wird hier bewusst nicht verwendet).
 
 ### Noch zu erledigen vor Go-Live
 
-#### 1. Web3Forms Access Key
-- Datei: `src/components/EstimateForm.astro`, Platzhalter: `WEB3FORMS_ACCESS_KEY_PLATZHALTER`
-- Vorgehen: Auf [web3forms.com](https://web3forms.com) mit `info@schuettekunst.de` registrieren, Key kopieren, einsetzen. Kostenlos.
+#### 1. ✅ Web3Forms Access Key — eingesetzt
+- Konfiguriert in `src/components/EstimateForm.astro` (Konstante `WEB3FORMS_ACCESS_KEY`).
+- Hinweis: Der Key wird client-seitig als Hidden-Field ins HTML eingebaut — das ist normal für Web3Forms und kein Sicherheitsproblem (Honeypot + Rate-Limit von Web3Forms schützen vor Missbrauch).
+- Falls der Key rotiert wird: an dieser einen Stelle ersetzen.
 
 #### 2. Google Tag Manager Container-ID
 - Datei: `src/components/CookieBanner.astro`, Platzhalter: `GTM-XXXXXXX`
