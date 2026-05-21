@@ -1,18 +1,18 @@
 # Auktions-Ergebnis-Bilder
 
-In diesem Ordner müssen die folgenden Bilddateien hinterlegt werden:
+In diesem Ordner müssen die folgenden Bilddateien hinterlegt werden. Die Reihenfolge entspricht der Anzeige auf der Landing Page (absteigend nach Ergebnis).
 
-| Dateiname | Werk |
-|---|---|
-| `neo-rauch.jpg` | Neo Rauch (Ergebnis 93.947 €) |
-| `mattheuer-gemaelde.jpg` | Wolfgang Mattheuer – Gemälde (100.000 €) |
-| `triegel.jpg` | Michael Triegel (85.800 €) |
-| `mattheuer-skulptur.jpg` | Wolfgang Mattheuer – Skulptur (43.560 €) |
-| `schmidt-rottluff.jpg` | Karl Schmidt-Rottluff (33.595 €) |
-| `arno-rink.jpg` | Arno Rink (33.595 €) |
-| `lambert-rucki.jpg` | Jean Lambert-Rucki (32.683 €) |
-| `otto-mueller.jpg` | Otto Müller (25.080 €) |
-| `stoetzer.jpg` | Werner Stötzer (19.800 €) |
+| # | Dateiname | Werk | Ergebnis |
+|---|---|---|---|
+| 1 | `mattheuer-gemaelde.jpg` | Wolfgang Mattheuer – Gemälde | 100.000 € |
+| 2 | `neo-rauch.jpg` | Neo Rauch | 93.947 € |
+| 3 | `triegel.jpg` | Michael Triegel | 85.800 € |
+| 4 | `henri-rousseau.jpg` | Henri Rousseau | 75.000 € |
+| 5 | `dokoupil.jpg` | Jiri Georg Dokoupil | 59.400 € |
+| 6 | `schmidt-rottluff.jpg` | Karl Schmidt-Rottluff | 33.595 € |
+| 7 | `lambert-rucki.jpg` | Jean Lambert-Rucki | 32.683 € |
+| 8 | `otto-mueller.jpg` | Otto Müller | 25.080 € |
+| 9 | `georg-kolbe.jpg` | Georg Kolbe | 21.120 € |
 
 ## Bild-Anforderungen
 
