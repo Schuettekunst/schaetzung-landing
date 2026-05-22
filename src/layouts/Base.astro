@@ -21,6 +21,31 @@ const {
 <html lang="de">
   <head>
     <meta charset="utf-8" />
+
+    <!-- Google Consent Mode V2 — Default-State (DSGVO: alles denied bis Einwilligung) -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied',
+        'functionality_storage': 'granted',
+        'security_storage': 'granted',
+        'wait_for_update': 500
+      });
+      gtag('set', 'ads_data_redaction', true);
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W8SR3D85');</script>
+    <!-- End Google Tag Manager -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#1a2332" />
 
@@ -47,40 +72,19 @@ const {
     <!-- Robots -->
     <meta name="robots" content="index, follow, max-image-preview:large" />
 
-    <!-- Preconnect für Google Fonts (nur Fonts, kein GTM ohne Consent) -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
     />
-
-    <!-- GTM HEAD HIER -->
-    <!--
-      Google Tag Manager wird NICHT direkt eingebunden.
-      Stattdessen lädt der Cookie-Banner GTM erst nach Consent (Consent Mode V2).
-      Container-ID muss in CookieBanner.astro eingetragen werden (GTM-XXXXXXX).
-    -->
-
-    <!-- Default Consent State (vor GTM-Load, Consent Mode V2) -->
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag('consent', 'default', {
-        ad_storage: 'denied',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied',
-        analytics_storage: 'denied',
-        functionality_storage: 'granted',
-        security_storage: 'granted',
-        wait_for_update: 500,
-      });
-      gtag('set', 'ads_data_redaction', true);
-    </script>
   </head>
   <body class="min-h-screen flex flex-col bg-cream text-ink">
-    <!-- GTM BODY HIER -->
-    <!-- noscript-Fallback nach GTM-Aktivierung hier einfügen, sobald Container-ID bekannt -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8SR3D85"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <slot />
 

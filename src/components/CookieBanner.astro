@@ -1,9 +1,10 @@
 ---
 // DSGVO-konformer Cookie-Banner mit Google Consent Mode V2
-// GTM wird erst nach Klick auf "Akzeptieren" geladen.
 //
-// HINWEIS: Container-ID GTM-XXXXXXX vor Go-Live durch die echte ID ersetzen.
-const GTM_ID = 'GTM-XXXXXXX';
+// Wichtig: GTM wird IMMER über Base.astro geladen (Consent Mode V2 Pattern).
+// Dieser Banner sendet nur gtag('consent','update', ...) — die Tags innerhalb
+// von GTM dürfen erst feuern, sobald der User auf "Akzeptieren" geklickt hat.
+// "Ablehnen" muss kein gtag-Update senden, weil der Default-State bereits 'denied' ist.
 ---
 
 <div
@@ -48,71 +49,25 @@ const GTM_ID = 'GTM-XXXXXXX';
   </div>
 </div>
 
-<script define:vars={{ GTM_ID }}>
+<script is:inline>
   (function () {
-    const STORAGE_KEY = 'cookie-consent-v1';
-    const banner = document.getElementById('cookieBanner');
-    const acceptBtn = document.getElementById('cookieAccept');
-    const rejectBtn = document.getElementById('cookieReject');
+    var STORAGE_KEY = 'cookie-consent-v1';
+    var banner = document.getElementById('cookieBanner');
+    var acceptBtn = document.getElementById('cookieAccept');
+    var rejectBtn = document.getElementById('cookieReject');
 
     function gtag() {
+      window.dataLayer = window.dataLayer || [];
       window.dataLayer.push(arguments);
     }
 
-    // Lädt den Google Tag Manager (erst nach Consent aufgerufen)
-    function loadGTM() {
-      if (!GTM_ID || GTM_ID === 'GTM-XXXXXXX') {
-        console.info('[GTM] Kein gültiger Container — Tag-Lade-Vorgang übersprungen.');
-        return;
-      }
-      if (window.__gtmLoaded) return;
-      window.__gtmLoaded = true;
-
-      // Standard-GTM-Snippet
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-        const f = d.getElementsByTagName(s)[0];
-        const j = d.createElement(s);
-        const dl = l !== 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, 'script', 'dataLayer', GTM_ID);
-
-      // noscript-Fallback (für User mit deaktiviertem JS bringt das nichts, ist aber Standard)
-      const iframe = document.createElement('iframe');
-      iframe.src = 'https://www.googletagmanager.com/ns.html?id=' + GTM_ID;
-      iframe.height = '0';
-      iframe.width = '0';
-      iframe.style.display = 'none';
-      iframe.style.visibility = 'hidden';
-      const noscript = document.createElement('noscript');
-      noscript.appendChild(iframe);
-      document.body.insertBefore(noscript, document.body.firstChild);
-    }
-
-    function accept() {
-      localStorage.setItem(STORAGE_KEY, 'accepted');
+    function grantAll() {
       gtag('consent', 'update', {
-        ad_storage: 'granted',
-        ad_user_data: 'granted',
-        ad_personalization: 'granted',
-        analytics_storage: 'granted',
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted'
       });
-      hideBanner();
-      loadGTM();
-    }
-
-    function reject() {
-      localStorage.setItem(STORAGE_KEY, 'rejected');
-      gtag('consent', 'update', {
-        ad_storage: 'denied',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied',
-        analytics_storage: 'denied',
-      });
-      hideBanner();
     }
 
     function hideBanner() {
@@ -123,23 +78,31 @@ const GTM_ID = 'GTM-XXXXXXX';
       if (banner) banner.classList.remove('hidden');
     }
 
-    acceptBtn?.addEventListener('click', accept);
-    rejectBtn?.addEventListener('click', reject);
+    function accept() {
+      try { localStorage.setItem(STORAGE_KEY, 'accepted'); } catch (e) {}
+      grantAll();
+      hideBanner();
+    }
 
-    const stored = localStorage.getItem(STORAGE_KEY);
+    function reject() {
+      try { localStorage.setItem(STORAGE_KEY, 'rejected'); } catch (e) {}
+      // Default-State ist bereits 'denied' (siehe Base.astro) — kein gtag-Update nötig.
+      hideBanner();
+    }
+
+    if (acceptBtn) acceptBtn.addEventListener('click', accept);
+    if (rejectBtn) rejectBtn.addEventListener('click', reject);
+
+    var stored = null;
+    try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+
     if (stored === 'accepted') {
-      // User hatte schon zugestimmt → Consent direkt updaten + GTM laden
-      gtag('consent', 'update', {
-        ad_storage: 'granted',
-        ad_user_data: 'granted',
-        ad_personalization: 'granted',
-        analytics_storage: 'granted',
-      });
-      loadGTM();
+      // User hatte schon zugestimmt — Consent wiederherstellen, Banner bleibt aus
+      grantAll();
     } else if (stored === 'rejected') {
-      // Bereits abgelehnt → Banner aus, kein GTM
+      // Bereits abgelehnt — Default-State ('denied') wirkt weiter, Banner bleibt aus
     } else {
-      // Noch keine Entscheidung → Banner zeigen
+      // Keine Entscheidung gespeichert — Banner zeigen
       showBanner();
     }
   })();
